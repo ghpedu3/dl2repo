@@ -151,9 +151,6 @@ _BBW32_BASE_NAME="bun-canary-${_BBW32_VERSION}"
     cd "busybox-w32/${_BBW32_NAME}" || exit $?
     
     wget --continue "${_BBW32_BASE_URL}/busybox.exe"
-    wget --continue "${_BBW32_BASE_URL}/busyboxw.exe"
-    wget --continue "${_BBW32_BASE_URL}/busyboxu.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox32u.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64u.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64a.exe"
