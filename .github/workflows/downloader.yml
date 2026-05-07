@@ -21,10 +21,14 @@ jobs:
         run: |
           chmod +rwx ${{ github.workspace }}/scripts/downloader.sh
           ${{ github.workspace }}/scripts/downloader.sh
-          rm -rf ${{ github.workspace }}/.github/
       - name: Commit files
         id: commit
         run: |
+          rm -rf ${{ github.workspace }}/.git/
+          rm -rf ${{ github.workspace }}/.github/
+          rm -rf ${{ github.workspace }}/scripts/
+          rm ${{ github.workspace }}/*
+          git init
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git add --all
@@ -34,11 +38,12 @@ jobs:
             git commit -m "Add changes" -a
             echo "::set-output name=push::true"
           fi
+          echo "BRANCH_TIMESTAMP=$(date --utc +%Y%m%d-%H%M%S-%N)" >> ${GITHUB_ENV}
         shell: bash
       - name: Push changes
         if: steps.commit.outputs.push == 'true'
         uses: ghpedu3/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: artifacts
+          branch: artifacts-$BRANCH_TIMESTAMP
           force: true
