@@ -1,7 +1,9 @@
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
-__ENABLE_DOWNLOAD_NODE="true"
+__ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
+
+__ENABLE_DOWNLOAD_QJSNG="true"
 
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
@@ -82,6 +84,37 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
     # d.ts
     wget --continue "${_DENO_BASE_URL}/lib.deno.d.ts"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_QJSNG_DIST_BASE_URL="https://github.com/quickjs-ng/quickjs/releases/download"
+_QJSNG_VERSION="0.14.0"
+_QJSNG_BASE_URL="${_QJSNG_DIST_BASE_URL}/v${_QJSNG_VERSION}"
+_QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_QJSNG}" = "true" ] && {
+    mkdir -p "quickjs-ng/${_QJSNG_BASE_NAME}"
+    cd "quickjs-ng/${_QJSNG_BASE_NAME}" || exit $?
+    
+    wget --continue "${_QJSNG_BASE_URL}/qjs-darwin"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-aarch64"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-armv7"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-riscv64"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-x86"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-x86_64"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-wasi-reactor.wasm"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-wasi.wasm"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-windows-x86.exe"
+    wget --continue "${_QJSNG_BASE_URL}/qjs-windows-x86_64.exe"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-darwin"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-aarch64"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-armv7"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-riscv64"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-x86"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-x86_64"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86.exe"
+    wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86_64.exe"
+    wget --continue "${_QJSNG_BASE_URL}/quickjs-amalgam.zip"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _BUN_CANARY_COMMIT="c5a2f8ffce1c9cc117887203004ea1f305b44c6a"
