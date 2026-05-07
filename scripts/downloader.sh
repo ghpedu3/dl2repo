@@ -3,11 +3,12 @@
 __ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
 
-__ENABLE_DOWNLOAD_QJSNG="true"
+__ENABLE_DOWNLOAD_QJSNG="false"
 
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
 
+__ENABLE_DOWNLOAD_BBW32="true"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -139,6 +140,23 @@ _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
     # win-arm64
     wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-aarch64.zip"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN_CANARY download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+
+_BBW32_VERSION="FRP-6075"
+_BBW32_BASE_URL="https://frippery.org/files/busybox"
+_BBW32_BASE_NAME="bun-canary-${_BBW32_VERSION}"
+[ "${__ENABLE_DOWNLOAD_BBW32}" = "true" ] && {
+    mkdir -p "busybox-w32/${_BBW32_BASE_NAME}"
+    cd "busybox-w32/${_BBW32_NAME}" || exit $?
+    
+    wget --continue "${_BBW32_BASE_URL}/busybox.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox32w.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox64.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox64u.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox64a.exe"
+    true
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BBW32 download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _W64DEVKIT_DIST_BASE_URL="https://github.com/skeeto/w64devkit/releases/download"
