@@ -1,6 +1,8 @@
 name: Downloader
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: workflow_dispatch
+env:
+  BRANCH_TIMESTAMP: 00000000-000000-000000000
 
 jobs:
   Download-to-repo:
@@ -45,5 +47,5 @@ jobs:
         uses: ghpedu3/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: artifacts-$BRANCH_TIMESTAMP
+          branch: artifacts-${{ env.BRANCH_TIMESTAMP }}
           force: true
