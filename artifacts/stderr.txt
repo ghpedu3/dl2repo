@@ -1,0 +1,4 @@
+NODE download was disabled
+DENO download was disabled
+BUN_CANARY download was disabled
+W64DEVKIT download was disabled
