@@ -19,8 +19,8 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Execute downloader.sh
         run: |
-          chmod +rwx ${{ github.workspace }}/.github/workflows/downloader.sh
-          ${{ github.workspace }}/.github/workflows/downloader.sh
+          chmod +rwx ${{ github.workspace }}/scripts/downloader.sh
+          ${{ github.workspace }}/scripts/downloader.sh
       - name: Commit files
         id: commit
         run: |
