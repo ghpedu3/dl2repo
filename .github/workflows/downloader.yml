@@ -27,7 +27,7 @@ jobs:
           rm -rf ${{ github.workspace }}/.git/
           rm -rf ${{ github.workspace }}/.github/
           rm -rf ${{ github.workspace }}/scripts/
-          rm -f ${{ github.workspace }}/*
+          rm ${{ github.workspace }}/*.md
           git init
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
