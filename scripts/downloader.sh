@@ -145,10 +145,10 @@ _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
 
 _BBW32_VERSION="FRP-6075"
 _BBW32_BASE_URL="https://frippery.org/files/busybox"
-_BBW32_BASE_NAME="bun-canary-${_BBW32_VERSION}"
+_BBW32_BASE_NAME="busybox-w32-${_BBW32_VERSION}"
 [ "${__ENABLE_DOWNLOAD_BBW32}" = "true" ] && {
     mkdir -p "busybox-w32/${_BBW32_BASE_NAME}"
-    cd "busybox-w32/${_BBW32_NAME}" || exit $?
+    cd "busybox-w32/${_BBW32_BASE_NAME}" || exit $?
     
     wget --continue "${_BBW32_BASE_URL}/busybox.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64.exe"
