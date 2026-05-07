@@ -87,7 +87,7 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
 
 
 _QJSNG_DIST_BASE_URL="https://github.com/quickjs-ng/quickjs/releases/download"
-_QJSNG_VERSION="0.14.0"
+_QJSNG_VERSION="0.13.0"
 _QJSNG_BASE_URL="${_QJSNG_DIST_BASE_URL}/v${_QJSNG_VERSION}"
 _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
 
