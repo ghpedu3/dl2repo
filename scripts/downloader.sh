@@ -239,6 +239,8 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     wget --continue "${_TCMD_BASE_URL}/tcc-rt.exe"
     wget --continue "${_TCMD_BASE_URL}/TakeCommand.pdf"
     wget --continue "${_TCMD_BASE_URL}/TakeCommand.ewriter"
+    wget --continue "${_TCMD_BASE_URL}/CMDebug.pdf"
+    wget --continue "${_TCMD_BASE_URL}/CMDebug.ewriter"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -249,10 +251,6 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     cd "tmp" || exit $?
 
     wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
-    wget --continue "https://jpsoft.com/downloads/v36/CMDebug.pdf"
-    wget --continue "https://jpsoft.com/downloads/v35/CMDebug.pdf"
-    wget --continue "https://jpsoft.com/downloads/v36/CMDebug.ewriter"
-    wget --continue "https://jpsoft.com/downloads/v35/CMDebug.ewriter"
     
 
     cd "${_ARTIFACTS}"
