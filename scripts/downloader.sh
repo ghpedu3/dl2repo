@@ -56,7 +56,8 @@ true >"${_ARTIFACTS}/stderr.txt"
     cd win-arm64 || exit $?
     wget --continue "${_NODE_BASE_URL}/win-arm64/node.lib"
     wget --continue "${_NODE_BASE_URL}/win-arm64/node_pdb.7z"
-    cd ..
+    
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'NODE download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
@@ -84,6 +85,8 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
     wget --continue "${_DENO_BASE_URL}/deno_src.tar.gz"
     # d.ts
     wget --continue "${_DENO_BASE_URL}/lib.deno.d.ts"
+
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
@@ -115,6 +118,8 @@ _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
     wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86.exe"
     wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86_64.exe"
     wget --continue "${_QJSNG_BASE_URL}/quickjs-amalgam.zip"
+
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
@@ -139,22 +144,66 @@ _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
     wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-x64-baseline.zip"
     # win-arm64
     wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-aarch64.zip"
+
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN_CANARY download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 
-_BBW32_VERSION="FRP-6075"
+_BBW32_BASE_VERSION="FRP-6075"
+_BBW32_COMMIT_TAG="g169694ebd"
+_BBW32_VERSION="${_BBW32_BASE_VERSION}-${_BBW32_COMMIT_TAG}"
 _BBW32_BASE_URL="https://frippery.org/files/busybox"
-_BBW32_BASE_NAME="busybox-w32-${_BBW32_VERSION}"
+_BBW32_PRE_RELEASE_BASE_URL="${_BBW32_BASE_URL}/prerelease"
+_BBW32_REL_NOTES_BASE_URL="https://frippery.org/busybox/release-notes"
+_BBW32_BASE_NAME="busybox-w32-${_BBW32_BASE_VERSION}"
 [ "${__ENABLE_DOWNLOAD_BBW32}" = "true" ] && {
     mkdir -p "busybox-w32/${_BBW32_BASE_NAME}"
     cd "busybox-w32/${_BBW32_BASE_NAME}" || exit $?
+
+    wget --continue "${_BBW32_BASE_URL}/busybox-${_BBW32_VERSION}.1.gz"
     
+    wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.sig"
+
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64-${_BBW32_VERSION}.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64-${_BBW32_VERSION}.sig"
+
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64u-${_BBW32_VERSION}.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64u-${_BBW32_VERSION}.sig"
+
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64a-${_BBW32_VERSION}.exe"
+    wget --continue "${_BBW32_BASE_URL}/busybox-w64a-${_BBW32_VERSION}.sig"
+
+    cd ..
+    mkdir current
+    cd current
+    
+    wget --continue "${_BBW32_BASE_URL}/busybox.1.gz"
     wget --continue "${_BBW32_BASE_URL}/busybox.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64u.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox64a.exe"
-    true
+
+    cd ..
+    mkdir pre-release
+    cd pre-release
+
+    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre.exe"
+    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre32w.exe"
+    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64.exe"
+    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64u.exe"
+    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64a.exe"
+
+    cd ..
+    mkdir release-notes
+    cd release-notes
+    
+    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/${_BBW32_BASE_VERSION}.html"
+    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/current.html"
+    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/index.html"
+
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BBW32 download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
@@ -173,6 +222,8 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
         split --bytes=100MiB --numeric-suffixes=1 source.tar source.tar.part
         rm source.tar
     }
+
+    cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'W64DEVKIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 # wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-linux-arm64.tar.xz
