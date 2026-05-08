@@ -265,6 +265,10 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
     # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
     wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
+    wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/ICMP_hole_punching"
+    wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/Port_Control_Protocol"
+    wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/Hole_punching_(networking)"
+    wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/UDP_hole_punching"
     
 
     cd "${_ARTIFACTS}"
