@@ -11,7 +11,7 @@ __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 
-__ENABLE_DOWNLOAD_TCMD="true"
+__ENABLE_DOWNLOAD_TCMD="false"
 
 __ENABLE_DOWNLOAD_TMP="true"
 
@@ -252,7 +252,7 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     mkdir "tmp"
     cd "tmp" || exit $?
 
-    wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+    # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
     
 
     cd "${_ARTIFACTS}"
