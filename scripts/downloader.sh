@@ -11,6 +11,8 @@ __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 
+__ENABLE_DOWNLOAD_TCMD="true"
+
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -222,16 +224,39 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'W64DEVKIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+_TCMD_DIST_BASE_URL="https://jpsoft.com/downloads"
+_TCMD_VERSION="36"
+_TCMD_BASE_URL="${_TCMD_DIST_BASE_URL}/v${_TCMD_VERSION}"
+_TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_TCMMD}" = "true" ] && {
+    mkdir -p "tcmd/${_TCMD_BASE_NAME}"
+    cd "tcmd/${_TCMD_BASE_NAME}" || exit $?
+
+    wget --continue "${_TCMD_BASE_URL}/tcmd.exe"
+    wget --continue "${_TCMD_BASE_URL}/tcc.exe"
+    wget --continue "${_TCMD_BASE_URL}/cmdebug.exe"
+    wget --continue "${_TCMD_BASE_URL}/tcc-rt.exe"
+    wget --continue "${_TCMD_BASE_URL}/TakeCommand.pdf"
+    wget --continue "${_TCMD_BASE_URL}/TakeCommand.ewriter"
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 
 [ "${__ENABLE_DOWNLOAD_TMP}" = "true" ] && {
     mkdir "tmp"
     cd "tmp" || exit $?
 
     wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+    wget --continue "https://jpsoft.com/downloads/v36/CMDebug.pdf"
+    wget --continue "https://jpsoft.com/downloads/v35/CMDebug.pdf"
+    wget --continue "https://jpsoft.com/downloads/v36/CMDebug.ewriter"
+    wget --continue "https://jpsoft.com/downloads/v35/CMDebug.ewriter"
     
 
     cd "${_ARTIFACTS}"
-} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BBW32 download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 # wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-linux-arm64.tar.xz
 # wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-win-x64.7z
