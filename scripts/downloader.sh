@@ -229,7 +229,7 @@ _TCMD_VERSION="36"
 _TCMD_BASE_URL="${_TCMD_DIST_BASE_URL}/v${_TCMD_VERSION}"
 _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
-[ "${__ENABLE_DOWNLOAD_TCMMD}" = "true" ] && {
+[ "${__ENABLE_DOWNLOAD_TCMD}" = "true" ] && {
     mkdir -p "tcmd/${_TCMD_BASE_NAME}"
     cd "tcmd/${_TCMD_BASE_NAME}" || exit $?
 
