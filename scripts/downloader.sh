@@ -5,8 +5,8 @@ __ENABLE_DOWNLOAD_DENO="false"
 
 __ENABLE_DOWNLOAD_QJSNG="false"
 
-__ENABLE_DOWNLOAD_BUN="false"
-__ENABLE_DOWNLOAD_BUN_CANARY="true"
+__ENABLE_DOWNLOAD_BUN="true"
+__ENABLE_DOWNLOAD_BUN_CANARY="false"
 
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
@@ -136,6 +136,34 @@ _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_BUN_DIST_BASE_URL="https://github.com/oven-sh/bun/releases/download"
+_BUN_VERSION="1.3.13"
+_BUN_BASE_URL="${_BUN_DIST_BASE_URL}/bun-v${_BUN_VERSION}"
+_BUN_BASE_NAME="bun-v${_BUN_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_BUN}" = "true" ] && {
+    mkdir -p "bun/${_BUN_BASE_NAME}"
+    cd "bun/${_BUN_BASE_NAME}" || exit $?
+    # linux-x64
+    wget --continue "${_BUN_BASE_URL}/bun-linux-x64.zip"
+    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-baseline.zip"
+    # linux-x64-musl
+    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-musl.zip"
+    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-musl-baseline.zip"
+    # linux-arm64
+    wget --continue "${_BUN_BASE_URL}/bun-linux-aarch64.zip"
+    # linux-arm64-musl
+    wget --continue "${_BUN_BASE_URL}/bun-linux-aarch64-musl.zip"
+    # win-x64
+    wget --continue "${_BUN_BASE_URL}/bun-windows-x64.zip"
+    wget --continue "${_BUN_BASE_URL}/bun-windows-x64-baseline.zip"
+    # win-arm64
+    wget --continue "${_BUN_BASE_URL}/bun-windows-aarch64.zip"
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _BUN_CANARY_COMMIT="d5945cffad9037d064001c3dcde6aceb06362deb"
