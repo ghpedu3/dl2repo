@@ -264,6 +264,7 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     cd "tmp" || exit $?
 
     # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+    wget --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
     
 
     cd "${_ARTIFACTS}"
