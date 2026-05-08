@@ -299,7 +299,7 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
             rm SysinternalsSuite.zip
         }
     }
-    wget "https://download.sysinternals.com/files/PSTools.zip"
+    # wget "https://download.sysinternals.com/files/PSTools.zip"
     
     
 
