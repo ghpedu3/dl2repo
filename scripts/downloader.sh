@@ -6,7 +6,7 @@ __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
 
 __ENABLE_DOWNLOAD_BUN="false"
-__ENABLE_DOWNLOAD_BUN_CANARY="false"
+__ENABLE_DOWNLOAD_BUN_CANARY="true"
 
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
@@ -138,7 +138,7 @@ _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
-_BUN_CANARY_COMMIT="c5a2f8ffce1c9cc117887203004ea1f305b44c6a"
+_BUN_CANARY_COMMIT="d5945cffad9037d064001c3dcde6aceb06362deb"
 _BUN_CANARY_BASE_URL="https://github.com/oven-sh/bun/releases/download/canary"
 _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
 [ "${__ENABLE_DOWNLOAD_BUN_CANARY}" = "true" ] && {
