@@ -37,6 +37,7 @@ true >"${_ARTIFACTS}/stderr.txt"
     mkdir -p "nodejs/${_NODE_BASE_NAME}"
     cd "nodejs/${_NODE_BASE_NAME}" || exit $?
     # linux
+    wget --continue "${_NODE_BASE_NAME_URL}-linux-arm7l.tar.xz"
     wget --continue "${_NODE_BASE_NAME_URL}-linux-arm64.tar.xz"
     wget --continue "${_NODE_BASE_NAME_URL}-linux-x64.tar.xz"
     # win-x64
@@ -45,6 +46,9 @@ true >"${_ARTIFACTS}/stderr.txt"
     # win-arm64
     wget --continue "${_NODE_BASE_NAME_URL}-win-arm64.7z"
     wget --continue "${_NODE_BASE_NAME_URL}-arm64.msi"
+    # win-x86
+    wget --continue "${_NODE_BASE_NAME_URL}-win-x86.7z"
+    wget --continue "${_NODE_BASE_NAME_URL}-x86.msi"
     # src
     wget --continue "${_NODE_BASE_NAME_URL}.tar.xz"
     # sdk headers
