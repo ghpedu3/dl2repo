@@ -66,7 +66,7 @@ true >"${_ARTIFACTS}/stderr.txt"
     cd win-x86 || exit $?
     wget --continue "${_NODE_BASE_URL}/win-x86/node.lib"
     wget --continue "${_NODE_BASE_URL}/win-x86/node_pdb.7z"
-    cd..
+    cd ..
     
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'NODE download was disabled' >>"${_ARTIFACTS}/stderr.txt"
