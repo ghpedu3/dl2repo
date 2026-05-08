@@ -9,7 +9,7 @@ __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
-__ENABLE_DOWNLOAD_MSEDIT="false"
+__ENABLE_DOWNLOAD_MSEDIT="true"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -294,13 +294,13 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     mkdir -p "microsoft-edit/${_MSEDIT_BASE_NAME}"
     cd "microsoft-edit/${_MSEDIT_BASE_NAME}" || exit $?
     # linux-x64
-    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-x86_64-linux-gnu.tar.gz"
+    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-linux-gnu.tar.gz"
     # linux-arm64
-    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-aarch64-linux-gnu.tar.gz"
+    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-linux-gnu.tar.gz"
     # win-x64
-    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-x86_64-windows.zip"
+    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-windows.zip"
     # win-arm64
-    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-aarch64-windows.zip"
+    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-windows.zip"
     # src
     wget --content-disposition "https://github.com/microsoft/edit/archive/refs/tags/v${_MSEDIT_VERSION}.tar.gz"
 
