@@ -162,6 +162,7 @@ _BBW32_BASE_NAME="busybox-w32-${_BBW32_BASE_VERSION}"
     cd "busybox-w32/${_BBW32_BASE_NAME}" || exit $?
 
     wget --continue "${_BBW32_BASE_URL}/busybox-${_BBW32_VERSION}.1.gz"
+    wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.tgz"
     wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox-w64-${_BBW32_VERSION}.exe"
     wget --continue "${_BBW32_BASE_URL}/busybox-w64u-${_BBW32_VERSION}.exe"
