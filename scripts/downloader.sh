@@ -9,6 +9,7 @@ __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
+__ENABLE_DOWNLOAD_MSEDIT="true"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -283,6 +284,28 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+_MSEDIT_DIST_BASE_URL="https://github.com/microsoft/edit/releases/download"
+_MSEDIT_VERSION="2.0.0"
+_MSEDIT_BASE_URL="${_MSEDIT_DIST_BASE_URL}/v${_MSEDIT_VERSION}"
+_MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_MSEDIT}" = "true" ] && {
+    mkdir -p "microsoft-edit/${_MSEDIT_BASE_NAME}"
+    cd "microsoft-edit/${_MSEDIT_BASE_NAME}" || exit $?
+    # linux-x64
+    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-x86_64-linux-gnu.tar.gz"
+    # linux-arm64
+    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-aarch64-linux-gnu.tar.gz"
+    # win-x64
+    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-x86_64-windows.zip"
+    # win-arm64
+    wget --continue "${_MSEDIT_BASE_URL}/edit-2.0.0-aarch64-windows.zip"
+    # src
+    wget --content-disposition "https://github.com/microsoft/edit/archive/refs/tags/v${_MSEDIT_VERSION}.tar.gz"
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSEDIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 [ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
     mkdir -p "google-chrome"
