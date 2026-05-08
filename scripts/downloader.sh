@@ -293,7 +293,12 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
     # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
     # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
-    wget "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+    [ 1 = 1 ] && {
+        wget "https://download.sysinternals.com/files/SysinternalsSuite.zip" && {
+            split --bytes=49MiB --numeric-suffixes=1 SysinternalsSuite.zip SysinternalsSuite.zip.part
+            rm SysinternalsSuite.zip
+        }
+    }
     
 
     cd "${_ARTIFACTS}"
