@@ -242,6 +242,8 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     wget --continue "${_TCMD_BASE_URL}/CMDebug.pdf"
     wget --continue "${_TCMD_BASE_URL}/CMDebug.ewriter"
 
+    wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
