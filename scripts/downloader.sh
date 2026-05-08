@@ -8,8 +8,10 @@ __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
 
-__ENABLE_DOWNLOAD_BBW32="true"
+__ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
+
+__ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
@@ -218,6 +220,18 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'W64DEVKIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+
+[ "${__ENABLE_DOWNLOAD_TMP}" = "true" ] && {
+    mkdir "tmp"
+    cd "tmp" || exit $?
+
+    wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+    
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BBW32 download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 # wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-linux-arm64.tar.xz
 # wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-win-x64.7z
