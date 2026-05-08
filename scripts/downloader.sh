@@ -2,17 +2,13 @@
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
 __ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
-
 __ENABLE_DOWNLOAD_QJSNG="false"
-
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
-
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
-
 __ENABLE_DOWNLOAD_TCMD="false"
-
+__ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -254,9 +250,11 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
     wget --continue "${_W64DEVKIT_BASE_URL}/w64devkit-x64-${_W64DEVKIT_VERSION}.7z.exe"
     wget --continue "${_W64DEVKIT_BASE_URL}/w64devkit-x86-${_W64DEVKIT_VERSION}.7z.exe"
     # large file
-    wget --continue "${_W64DEVKIT_BASE_URL}/source.tar" && {
-        split --bytes=100MiB --numeric-suffixes=1 source.tar source.tar.part
-        rm source.tar
+    true && {
+        wget --continue "${_W64DEVKIT_BASE_URL}/source.tar" && {
+            split --bytes=49MiB --numeric-suffixes=1 source.tar source.tar.part
+            rm source.tar
+        }
     }
 
     cd "${_ARTIFACTS}"
@@ -286,6 +284,42 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
+[ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
+    mkdir -p "google-chrome"
+    cd "google-chrome" || exit $?
+    GoogleChromeStandaloneEnterprise64="https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi"
+    GoogleChromeStandaloneEnterprise="https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise.msi"
+    ChromeStandaloneSetup64="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BFDC21362-D83A-7CF4-7354-10A215B91416%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3D-arch_x64-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
+    ChromeStandaloneSetup="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BFDC21362-D83A-7CF4-7354-10A215B91416%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3D-arch_x86-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup.exe"
+
+    true && {
+        wget "${GoogleChromeStandaloneEnterprise64}" && {
+                split --bytes=49MiB --numeric-suffixes=1 GoogleChromeStandaloneEnterprise64.msi GoogleChromeStandaloneEnterprise64.msi.part
+                rm GoogleChromeStandaloneEnterprise64.msi
+        }
+    }
+    false && {
+        wget "${GoogleChromeStandaloneEnterprise}" && {
+                split --bytes=49MiB --numeric-suffixes=1 GoogleChromeStandaloneEnterprise.msi GoogleChromeStandaloneEnterprise.msi.part
+                rm GoogleChromeStandaloneEnterprise.msi
+        }
+    }
+    false && {
+        wget "${ChromeStandaloneSetup64}" && {
+                split --bytes=49MiB --numeric-suffixes=1 ChromeStandaloneSetup64.exe ChromeStandaloneSetup64.exe.part
+                rm ChromeStandaloneSetup64.exe
+        }
+    }
+    false && {
+        wget "${ChromeStandaloneSetup}"&& {
+                split --bytes=49MiB --numeric-suffixes=1 ChromeStandaloneSetup.exe ChromeStandaloneSetup.exe.part
+                rm ChromeStandaloneSetup.exe
+        }
+    }
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'CHROME download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 
 [ "${__ENABLE_DOWNLOAD_TMP}" = "true" ] && {
     mkdir "tmp"
@@ -293,13 +327,14 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
     # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
     # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
-    [ 0 = 1 ] && {
+    false && {
         wget "https://download.sysinternals.com/files/SysinternalsSuite.zip" && {
             split --bytes=49MiB --numeric-suffixes=1 SysinternalsSuite.zip SysinternalsSuite.zip.part
             rm SysinternalsSuite.zip
         }
     }
     # wget "https://download.sysinternals.com/files/PSTools.zip"
+
     
     
 
