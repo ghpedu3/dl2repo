@@ -374,7 +374,7 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-386.xz"
     wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-386.exe.xz"
     wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-386.exe.xz"
-    wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd13-amd64.xz"
+    wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd14-amd64.xz"
     wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-src-1.26.1.tar.gz"
     
 
