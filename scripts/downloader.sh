@@ -359,9 +359,9 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # wget "https://download.sysinternals.com/files/PSTools.zip"
 
     # wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe"
-    wget --content-disposition "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0"
+    wget -O "git-windows-minimal.2.54.0.nupkg" "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0"
     true && {
-        wget --content-disposition "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" && {
+        wget -O "gitforwindows.2.54.0.nupkg" "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" && {
             split --bytes=49MiB --numeric-suffixes=1 gitforwindows.2.54.0.nupkg gitforwindows.2.54.0.nupkg.part
             rm gitforwindows.2.54.0.nupkg
         }
