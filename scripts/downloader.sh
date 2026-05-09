@@ -358,26 +358,15 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     }
     # wget "https://download.sysinternals.com/files/PSTools.zip"
 
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-arm64.exe"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-32-bit.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-64-bit.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-arm64.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-busybox-32-bit.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-busybox-64-bit.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/pdbs-for-git-64-bit-2.54.0.1-1.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/pdbs-for-git-arm64-2.54.0.1-1.zip"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/PortableGit-2.54.0-64-bit.7z.exe"
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/PortableGit-2.54.0-arm64.7z.exe"
+    # wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe"
+    wget --content-disposition "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0"
+    true && {
+        wget --content-disposition "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" && {
+            split --bytes=49MiB --numeric-suffixes=1 gitforwindows.2.54.0.nupkg gitforwindows.2.54.0.nupkg.part
+            rm gitforwindows.2.54.0.nupkg
+        }
+    }
     
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.tar.bz2" && {
-                split --bytes=49MiB --numeric-suffixes=1 Git-2.54.0-64-bit.tar.bz2 Git-2.54.0-64-bit.tar.bz2.part
-                rm Git-2.54.0-64-bit.tar.bz2
-    }
-    wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-arm64.tar.bz2" && {
-                split --bytes=49MiB --numeric-suffixes=1 Git-2.54.0-arm64.tar.bz2 Git-2.54.0-arm64.tar.bz2.part
-                rm Git-2.54.0-arm64.tar.bz2
-    }
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
