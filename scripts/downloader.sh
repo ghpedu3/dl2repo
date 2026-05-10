@@ -398,8 +398,8 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     wget --no-verbose "${_7ZIP_BASE_URL}/lzma${_7ZIP_VERSION/./}.7z"
     wget --no-verbose "${_7ZIP_BASE_URL}/7zr.exe"
 
-    wget --no-verbose "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.tar.gz"
-    wget --no-verbose "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.zip"
+    wget --no-verbose --content-disposition "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.tar.gz"
+    wget --no-verbose --content-disposition "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.zip"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo '7ZIP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
