@@ -317,7 +317,7 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # x64
     true && {
         _MSDEF_NAME_X64="${_MSDEF_BASE_NAME}_x64.exe"
-        wget --no-verbosee -O "${_MSDEF_NAME_X64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x64" && {
+        wget --no-verbose -O "${_MSDEF_NAME_X64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x64" && {
                 split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X64}" "${_MSDEF_NAME_X64}.part"
                 rm "${_MSDEF_NAME_X64}"
         }
@@ -325,7 +325,7 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # x86
     false && {
         _MSDEF_NAME_X86="${_MSDEF_BASE_NAME}_x86.exe"
-        wget --no-verbosee -O "${_MSDEF_NAME_X86}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x86" && {
+        wget --no-verbose -O "${_MSDEF_NAME_X86}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x86" && {
                 split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X86}" "${_MSDEF_NAME_X86}.part"
                 rm "${_MSDEF_NAME_X86}"
         }
@@ -333,7 +333,7 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # arm64
     false && {
         _MSDEF_NAME_ARM64="${_MSDEF_BASE_NAME}_arm64.exe"
-        wget --no-verbosee -O "${_MSDEF_NAME_ARM64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=arm64" && {
+        wget --no-verbose -O "${_MSDEF_NAME_ARM64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=arm64" && {
                 split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_ARM64}" "${_MSDEF_NAME_ARM64}.part"
                 rm "${_MSDEF_NAME_ARM64}"
         }
