@@ -376,8 +376,14 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-386.exe.xz"
     # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd14-amd64.xz"
     # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-src-1.26.1.tar.gz"
-    
 
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/dokan.zip"
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetup.exe"
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetupDbg.exe"
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_ARM64.msi"
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x64.msi"
+    wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x86.msi"
+    
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
