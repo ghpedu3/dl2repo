@@ -348,7 +348,7 @@ _GITHUB_CLI_VERSION="2.92.0"
 _GITHUB_CLI_BASE_URL="${_GITHUB_CLI_DIST_BASE_URL}/v${_GITHUB_CLI_VERSION}"
 _GITHUB_CLI_BASE_NAME="gh_${_GITHUB_CLI_VERSION}"
 
-[ "${__ENABLE_DOWNLOAD_GITHUB_CLI}" = "true" ] && {
+[ "${__ENABLE_DOWNLOAD_GITHUB-CLI}" = "true" ] && {
     mkdir -p "gh/${_MSEDIT_BASE_NAME}"
     cd "gh/${_MSEDIT_BASE_NAME}" || exit $?
     # linux
