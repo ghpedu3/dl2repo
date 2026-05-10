@@ -12,6 +12,7 @@ __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
+__ENABLE_DOWNLOAD_7ZIP="true"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -370,6 +371,40 @@ _GITHUB_CLI_BASE_NAME="gh_${_GITHUB_CLI_VERSION}"
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITHUB_CLI download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
+
+_7ZIP_DIST_BASE_URL="https://github.com/ip7z/7zip/releases/download"
+_7ZIP_VERSION="26.01"
+_7ZIP_BASE_URL="${_7ZIP_DIST_BASE_URL}/${_7ZIP_VERSION}"
+_7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_7ZIP}" = "true" ] && {
+    mkdir -p "7zip/${_7ZIP_BASE_NAME}"
+    cd "7zip/${_7ZIP_BASE_NAME}" || exit $?
+
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm.exe"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm64.exe"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-extra.7z"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm64.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x64.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x86.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-mac.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.7z"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.tar.xz"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.exe"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.msi"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.exe"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.msi"
+    wget --no-verbose "${_7ZIP_BASE_URL}/lzma${_7ZIP_VERSION/./}.7z"
+    wget --no-verbose "${_7ZIP_BASE_URL}/7zr.exe"
+
+    wget --no-verbose "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.tar.gz"
+    wget --no-verbose "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.zip"
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo '7ZIP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
 [ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
     mkdir -p "google-chrome"
     cd "google-chrome" || exit $?
@@ -453,6 +488,23 @@ _GITHUB_CLI_BASE_NAME="gh_${_GITHUB_CLI_VERSION}"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
 
     wget -O 7zip.html https://www.7-zip.org/download.html
+
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-arm.exe"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-arm64.exe"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-extra.7z"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-linux-arm.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-linux-arm64.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-linux-x64.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-linux-x86.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-mac.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-src.7z"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-src.tar.xz"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-x64.exe"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601-x64.msi"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601.exe"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7z2601.msi"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/7zr.exe"
+    wget --no-verbose "https://github.com/ip7z/7zip/releases/download/26.01/lzma2601.7z"
     
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
