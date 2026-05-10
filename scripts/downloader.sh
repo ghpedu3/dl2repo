@@ -420,8 +420,7 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x86.msi"
     # wget --no-verbose "https://github.com/dokan-dev/dokan-dotnet/releases/download/v2.3.0.3/DokanNet.2.3.0.3.nupkg"
 
-    # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-6_7_1/innosetup-6.7.1.exe"
-    wget --no-verbose "https://files.jrsoftware.org/is/6/innosetup-6.7.1.exe"
+    wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-6_7_1/innosetup-6.7.1.exe"
     wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
     wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
     
