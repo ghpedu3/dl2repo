@@ -343,32 +343,32 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSDEF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
-_GITHUB_CLI_DIST_BASE_URL="https://github.com/cli/cli/releases/download"
-_GITHUB_CLI_VERSION="2.92.0"
-_GITHUB_CLI_BASE_URL="${_GITHUB_CLI_DIST_BASE_URL}/v${_GITHUB_CLI_VERSION}"
-_GITHUB_CLI_BASE_NAME="gh_${_GITHUB_CLI_VERSION}"
+_GITHUB-CLI_DIST_BASE_URL="https://github.com/cli/cli/releases/download"
+_GITHUB-CLI_VERSION="2.92.0"
+_GITHUB-CLI_BASE_URL="${_GITHUB-CLI_DIST_BASE_URL}/v${_GITHUB-CLI_VERSION}"
+_GITHUB-CLI_BASE_NAME="gh_${_GITHUB-CLI_VERSION}"
 
 [ "${__ENABLE_DOWNLOAD_GITHUB-CLI}" = "true" ] && {
-    mkdir -p "gh/${_MSEDIT_BASE_NAME}"
-    cd "gh/${_MSEDIT_BASE_NAME}" || exit $?
+    mkdir -p "gh/${_GITHUB-CLI_BASE_NAME}"
+    cd "gh/${_GITHUB-CLI_BASE_NAME}" || exit $?
     # linux
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_386.tar.gz"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_amd64.tar.gz"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_arm64.tar.gz"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_linux_386.tar.gz"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_linux_amd64.tar.gz"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_linux_arm64.tar.gz"
     # win-x86
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.zip"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_386.msi"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_386.zip"
     # win-x64
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.zip"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_amd64.msi"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_amd64.zip"
     # win-arm64
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.zip"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_arm64.msi"
+    wget --no-verbose "${_GITHUB-CLI_BASE_URL}/${_GITHUB-CLI_BASE_NAME}_windows_arm64.zip"
     # src
-    wget --content-disposition "https://github.com/cli/cli/archive/refs/tags/v${_GITHUB_CLI_VERSION}.tar.gz"
+    wget --no-verbose --content-disposition "https://github.com/cli/cli/archive/refs/tags/v${_GITHUB-CLI_VERSION}.tar.gz"
 
     cd "${_ARTIFACTS}"
-} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITHUB_CLI download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITHUB-CLI download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 [ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
     mkdir -p "google-chrome"
