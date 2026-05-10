@@ -10,6 +10,7 @@ __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
+__ENABLE_DOWNLOAD_MSDEF="true"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -306,6 +307,40 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSEDIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+[ "${__ENABLE_DOWNLOAD_MSDEF}" = "true" ] && {
+    _MSDEF_BASE_NAME="mpam-fe"
+    mkdir -p "${_MSDEF_BASE_NAME}"
+    cd "${_MSDEF_BASE_NAME}" || exit $?
+
+    # x64
+    true && {
+        _MSDEF_NAME_X64="${_MSDEF_BASE_NAME}_x64.exe"
+        wget --no-verbosee -O "${_MSDEF_NAME_X64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x64" && {
+                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X64}" "${_MSDEF_NAME_X64}.part"
+                rm "${_MSDEF_NAME_X64}"
+        }
+    }
+    # x86
+    false && {
+        _MSDEF_NAME_X86="${_MSDEF_BASE_NAME}_x86.exe"
+        wget --no-verbosee -O "${_MSDEF_NAME_X86}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x86" && {
+                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X86}" "${_MSDEF_NAME_X86}.part"
+                rm "${_MSDEF_NAME_X86}"
+        }
+    }
+    # arm64
+    false && {
+        _MSDEF_NAME_ARM64="${_MSDEF_BASE_NAME}_arm64.exe"
+        wget --no-verbosee -O "${_MSDEF_NAME_ARM64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=arm64" && {
+                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_ARM64}" "${_MSDEF_NAME_ARM64}.part"
+                rm "${_MSDEF_NAME_ARM64}"
+        }
+    }
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSDEF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 [ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
     mkdir -p "google-chrome"
