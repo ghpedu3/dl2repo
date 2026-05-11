@@ -487,7 +487,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
 
-    wget https://rubyinstaller.org/
+    wget https://rubyinstaller.org/downloads
 
     
     cd "${_ARTIFACTS}"
