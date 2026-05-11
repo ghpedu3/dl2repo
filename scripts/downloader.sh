@@ -13,6 +13,7 @@ __ENABLE_DOWNLOAD_MSEDIT="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
+__ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN="true"
 __ENABLE_DOWNLOAD_TMP="true"
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
@@ -405,6 +406,60 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo '7ZIP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+[ "${__ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN}" = "true" ] && {
+    mkdir -p "rubyinstaller"
+    cd "rubyinstaller" || exit $?
+
+    # ruby-4.0
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-devkit-4.0.3-1-x64.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-4.0.3-1-x64.exe" "rubyinstaller-devkit-4.0.3-1-x64.exe.part"
+        rm "rubyinstaller-devkit-4.0.3-1-x64.exe"
+    }
+    # ruby-3.4    
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.4.9-1-x64.exe" "rubyinstaller-devkit-3.4.9-1-x64.exe.part"
+        rm "rubyinstaller-devkit-3.4.9-1-x64.exe"
+    }
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x86.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.4.9-1-x86.exe" "rubyinstaller-devkit-3.4.9-1-x86.exe.part"
+        rm "rubyinstaller-devkit-3.4.9-1-x86.exe"
+    }
+    # ruby-3.3
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.3.11-1-x64.exe" "rubyinstaller-devkit-3.3.11-1-x64.exe.part"
+        rm "rubyinstaller-devkit-3.3.11-1-x64.exe"
+    }
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x86.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.3.11-1-x86.exe" "rubyinstaller-devkit-3.3.11-1-x86.exe.part"
+        rm "rubyinstaller-devkit-3.3.11-1-x86.exe"
+    }
+    # ruby-3.2
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.2.11-1-x64.exe" "rubyinstaller-devkit-3.2.11-1-x64.exe.part"
+        rm "rubyinstaller-devkit-3.2.11-1-x64.exe"
+    }
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x86.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.2.11-1-x86.exe" "rubyinstaller-devkit-3.2.11-1-x86.exe.part"
+        rm "rubyinstaller-devkit-3.2.11-1-x86.exe"
+    }
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'RUBY_INSTALLER_WIN download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 [ "${__ENABLE_DOWNLOAD_CHROME}" = "true" ] && {
     mkdir -p "google-chrome"
     cd "google-chrome" || exit $?
@@ -487,7 +542,6 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
 
-    wget https://rubyinstaller.org/downloads
 
     
     cd "${_ARTIFACTS}"
