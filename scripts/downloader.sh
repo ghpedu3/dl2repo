@@ -542,6 +542,29 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
 
+    # ruby-2.7
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x64.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-2.7.8-1-x64.exe" "rubyinstaller-devkit-2.7.8-1-x64.exe.part"
+        rm "rubyinstaller-devkit-2.7.8-1-x64.exe"
+    }
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x86.exe" && {
+        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-2.7.8-1-x86.exe" "rubyinstaller-devkit-2.7.8-1-x86.exe.part"
+        rm "rubyinstaller-devkit-2.7.8-1-x86.exe"
+    }
+    # ruby-2.3
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-doc-chm.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-i386-mingw32.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-x64-mingw32.7z"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3-x64.exe"
+    # DevKit 4.7.2 (20130224, Ruby 2.0 Edition)
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe"
+    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe"
+
 
     
     cd "${_ARTIFACTS}"
