@@ -525,7 +525,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 
     # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
     # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
-    wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/Cranelift"
+    # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/Cranelift"
     false && {
         wget "https://download.sysinternals.com/files/SysinternalsSuite.zip" && {
             split --bytes=49MiB --numeric-suffixes=1 SysinternalsSuite.zip SysinternalsSuite.zip.part
