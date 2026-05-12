@@ -22,34 +22,35 @@ __ENABLE_DOWNLOAD_TMP="true"
 my_wget() {
 
 	local URL=''
-	local OUT=''
-	local PARAMS=''
+	local PARAMS=()
 	
 	[ "${1:+#}" = "" ] && {
 		echo URL not specified
 		return 1;
 	}
-	
 	URL="${1}"
-	
-	[ "${2+#}" = "#" ] && {
-		OUT="${2}"
-		PARAMS="-O $OUT"
-	} || {
-		OUT="${URL##*/}"
+	shift
+
+	[ "${1:+#}" = "#" ] && {
+		OUT="${1}"
+		PARAMS[0]="-O"
+		PARAMS[1]="${1}"
 	}
-	
-	[ "${3+#}" = "#" ] && {
-		PARAMS="$PARAMS ${3}"
+	[ "${1+#}" = "#" ] && shift
+
+	[ "${@:+#}" = "#" ] && {
+		PARAMS+=("$@")
 	} || {
-		PARAMS="--no-verbose $PARAMS"
+		PARAMS=('--no-verbose' "${PARAMS[@]}")
 	}
-	
+
 	local TMP_DIR="$(date --utc +%Y%m%d-%H%M%S-%N)-$RANDOM"
+	echo $TMP_DIR
 	mkdir "$TMP_DIR" || return 1
 	cd "$TMP_DIR" || return 1
-	echo "wget $PARAMS $URL"
-	wget $PARAMS "$URL" && {
+	echo wget "${PARAMS[@]}" "$URL"
+	wget "${PARAMS[@]}" "$URL" && {
+		local OUT=''
 		for OUT in *; do
 		    local SIZE=0
 		    SIZE="$(stat -c%s $OUT)"
