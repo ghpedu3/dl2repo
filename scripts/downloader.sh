@@ -4,6 +4,7 @@
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
 __ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
+__ENABLE_DOWNLOAD_ELECTRON="true"
 __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
@@ -153,6 +154,57 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_ELECTRON_DIST_BASE_URL="https://github.com/electron/electron/releases/download"
+_ELECTRON_VERSION="42.0.1"
+_ELECTRON_BASE_URL="${_ELECTRON_DIST_BASE_URL}/v${_ELECTRON_VERSION}"
+_ELECTRON_BASE_NAME="electron-${_ELECTRON_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_ELECTRON}" = "true" ] && {
+    mkdir -p "electron/${_ELECTRON_BASE_NAME}"
+    cd "electron/${_ELECTRON_BASE_NAME}" || exit $?
+   
+	for i in \
+        "chromedriver-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+        "chromedriver-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+        "chromedriver-v${_ELECTRON_VERSION}-linux-x64.zip" \
+        "chromedriver-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+        "chromedriver-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+        "chromedriver-v${_ELECTRON_VERSION}-win32-x64.zip" \
+        "electron-api.json" \
+        "electron-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+        "electron-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+        "electron-v${_ELECTRON_VERSION}-linux-x64.zip" \
+        "electron-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+        "electron-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+        "electron-v${_ELECTRON_VERSION}-win32-x64.zip" \
+        "electron.d.ts" \
+        "ffmpeg-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+        "ffmpeg-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+        "ffmpeg-v${_ELECTRON_VERSION}-linux-x64.zip" \
+        "ffmpeg-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+        "ffmpeg-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+        "ffmpeg-v${_ELECTRON_VERSION}-win32-x64.zip" \
+        "hunspell_dictionaries.zip" \
+        "libcxx-objects-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+        "libcxx-objects-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+        "libcxx-objects-v${_ELECTRON_VERSION}-linux-x64.zip" \
+        "libcxxabi_headers.zip" \
+        "libcxx_headers.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-linux-arm64-x64.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-linux-armv7l-x64.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-linux-x64.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-win32-arm64-x64.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+        "mksnapshot-v${_ELECTRON_VERSION}-win32-x64.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+    done
+    
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'ELECTRON download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _QJSNG_DIST_BASE_URL="https://github.com/quickjs-ng/quickjs/releases/download"
