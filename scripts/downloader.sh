@@ -43,17 +43,25 @@ my_wget() {
 		PARAMS="--no-verbose $PARAMS"
 	}
 	
+	local TMP_DIR="$(date --utc +%Y%m%d-%H%M%S-%N)-$RANDOM"
+	mkdir "$TMP_DIR" || return 1
+	cd "$TMP_DIR" || return 1
 	echo "wget $PARAMS $URL"
 	wget $PARAMS "$URL" && {
-		local SIZE=0
-		SIZE="$(stat -c%s $OUT)"
-	
-	    [ $SIZE -gt 51380224 ] && {
-	    	echo "split --bytes=49MiB --numeric-suffixes=1 '$OUT' '$OUT.part'"
-		    split --bytes=49MiB --numeric-suffixes=1 "$OUT" "$OUT.part"
-		    rm "$OUT"
-	    }
+		for OUT in *; do
+		    local SIZE=0
+		    SIZE="$(stat -c%s $OUT)"
+
+	        [ $SIZE -gt 51380224 ] && {
+	    	    echo "split --bytes=49MiB --numeric-suffixes=1 '$OUT' '$OUT.part'"
+		        split --bytes=49MiB --numeric-suffixes=1 "$OUT" "$OUT.part"
+		        rm "$OUT"
+	        }
+	    done
+	    mv * ../
 	}
+	cd ..
+	rm -rf "$TMP_DIR"
 }
 
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
