@@ -25,20 +25,20 @@ my_wget() {
 	local URL=''
 	local PARAMS=()
 	
-	[ "${1:+#}" = "" ] && {
+	[ "${1:+#}#" = "#" ] && {
 		echo URL not specified
 		return 1;
 	}
 	URL="${1}"
 	shift
 
-	[ "${1:+#}" = "#" ] && {
+	[ "${1:+#}#" = "##" ] && {
 		PARAMS[0]="-O"
 		PARAMS[1]="${1##*/}"
 	}
-	[ "${1+#}" = "#" ] && shift
+	[ "${1+#}#" = "##" ] && shift
 
-	[ "${@:+#}" = "#" ] && {
+	[ "${@:+#}#" = "##" ] && {
 		PARAMS+=("$@")
 	} || {
 		PARAMS=('--no-verbose' "${PARAMS[@]}")
