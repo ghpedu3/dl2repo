@@ -566,8 +566,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
 
     # wget --no-verbose "https://github.com/md-reader/md-reader/releases/download/v2.12.8/md-reader-2.12.8.zip"
-    # wget 'https://clients2.google.com/service/update2/crx?response=redirect&prodversion=148.0&id=mmhpicejjhcogggmjagbbhgffbckmeic&installsource=ondemand'
-    wget 'https://github.com/ayoubfaouzi/chrome-extension-downloader/releases/download/v1.0.0/chrome-ext-downloader.exe'
+    wget --user-agent="Mozilla/5.0" --continue --content-disposition 'https://clients2.google.com/service/update2/crx?response=redirect&prodversion=148.0&x=id%3Dmmhpicejjhcogggmjagbbhgffbckmeic%26installsource%3Dondemand%26uc'
 
     
     cd "${_ARTIFACTS}"
