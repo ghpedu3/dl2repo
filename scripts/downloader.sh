@@ -16,6 +16,46 @@ __ENABLE_DOWNLOAD_7ZIP="false"
 __ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN="false"
 __ENABLE_DOWNLOAD_TMP="true"
 
+
+my_wget() {
+
+	local URL=''
+	local OUT=''
+	local PARAMS=''
+	
+	[ "${1:+#}" = "" ] && {
+		echo URL not specified
+		return 1;
+	}
+	
+	URL="${1}"
+	
+	[ "${2+#}" = "#" ] && {
+		OUT="${2}"
+		PARAMS="-O $OUT"
+	} || {
+		OUT="${URL##*/}"
+	}
+	
+	[ "${3+#}" = "#" ] && {
+		PARAMS="$PARAMS ${3}"
+	} || {
+		PARAMS="--no-verbose $PARAMS"
+	}
+	
+	echo "wget $PARAMS $URL"
+	wget $PARAMS "$URL" && {
+		local SIZE=0
+		SIZE="$(stat -c%s $OUT)"
+	
+	    [ $SIZE -gt 51380224 ] && {
+	    	echo "split --bytes=49MiB --numeric-suffixes=1 '$OUT' '$OUT.part'"
+		    split --bytes=49MiB --numeric-suffixes=1 "$OUT" "$OUT.part"
+		    rm "$OUT"
+	    }
+	}
+}
+
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
