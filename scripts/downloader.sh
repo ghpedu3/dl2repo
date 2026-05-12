@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
 __ENABLE_DOWNLOAD_NODE="false"
