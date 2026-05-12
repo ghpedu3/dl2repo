@@ -32,9 +32,8 @@ my_wget() {
 	shift
 
 	[ "${1:+#}" = "#" ] && {
-		OUT="${1}"
 		PARAMS[0]="-O"
-		PARAMS[1]="${1}"
+		PARAMS[1]="${1##*/}"
 	}
 	[ "${1+#}" = "#" ] && shift
 
@@ -45,17 +44,16 @@ my_wget() {
 	}
 
 	local TMP_DIR="$(date --utc +%Y%m%d-%H%M%S-%N)-$RANDOM"
-	echo $TMP_DIR
 	mkdir "$TMP_DIR" || return 1
 	cd "$TMP_DIR" || return 1
-	echo wget "${PARAMS[@]}" "$URL"
+	echo wget "${PARAMS[@]}" "'$URL'"
 	wget "${PARAMS[@]}" "$URL" && {
 		local OUT=''
 		for OUT in *; do
 		    local SIZE=0
-		    SIZE="$(stat -c%s $OUT)"
+		    SIZE=$(stat -c%s "$OUT")
 
-	        [ $SIZE -gt 51380224 ] && {
+	        [ $SIZE -gt $((49 * 1024 * 1024)) ] && {
 	    	    echo "split --bytes=49MiB --numeric-suffixes=1 '$OUT' '$OUT.part'"
 		        split --bytes=49MiB --numeric-suffixes=1 "$OUT" "$OUT.part"
 		        rm "$OUT"
