@@ -11,6 +11,7 @@ __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_GOLANG="false"
+__ENABLE_DOWNLOAD_MSGO="true"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
@@ -193,6 +194,26 @@ _GOLANG_BASE_NAME="go-${_GOLANG_VERSION}"
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GOLANG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
+_MSGO_BASE_URL="https://aka.ms/golang/release/latest"
+_MSGO_VERSION="1.26.3"
+_MSGO_BASE_NAME="go-${_MSGO_VERSION}"
+[ "${__ENABLE_DOWNLOAD_MSGO}" = "true" ] && {
+    mkdir -p "msgo/${_MSGO_BASE_NAME}"
+    cd "msgo/${_MSGO_BASE_NAME}" || exit $?
+    
+	for n in \
+        "assets.json" \
+        "src.tar.gz" \
+        "linux-armv6l.tar.gz" \
+        "linux-arm64.tar.gz" \
+        "linux-amd64.tar.gz" \
+        "windows-amd64.zip"
+    do    
+        my_wget "${_MSGO_BASE_URL}/go${_MSGO_VERSION}.$n" "" --no-verbose --content-disposition
+    done
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSGO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 _ELECTRON_DIST_BASE_URL="https://github.com/electron/electron/releases/download"
 _ELECTRON_VERSION="42.0.1"
