@@ -223,44 +223,86 @@ _ELECTRON_BASE_NAME="electron-${_ELECTRON_VERSION}"
 [ "${__ENABLE_DOWNLOAD_ELECTRON}" = "true" ] && {
     mkdir -p "electron/${_ELECTRON_BASE_NAME}"
     cd "electron/${_ELECTRON_BASE_NAME}" || exit $?
-   
-	for i in \
-        "chromedriver-v${_ELECTRON_VERSION}-linux-arm64.zip" \
-        "chromedriver-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
-        "chromedriver-v${_ELECTRON_VERSION}-linux-x64.zip" \
-        "chromedriver-v${_ELECTRON_VERSION}-win32-arm64.zip" \
-        "chromedriver-v${_ELECTRON_VERSION}-win32-ia32.zip" \
-        "chromedriver-v${_ELECTRON_VERSION}-win32-x64.zip" \
-        "electron-api.json" \
-        "electron-v${_ELECTRON_VERSION}-linux-arm64.zip" \
-        "electron-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
-        "electron-v${_ELECTRON_VERSION}-linux-x64.zip" \
-        "electron-v${_ELECTRON_VERSION}-win32-arm64.zip" \
-        "electron-v${_ELECTRON_VERSION}-win32-ia32.zip" \
-        "electron-v${_ELECTRON_VERSION}-win32-x64.zip" \
-        "electron.d.ts" \
-        "ffmpeg-v${_ELECTRON_VERSION}-linux-arm64.zip" \
-        "ffmpeg-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
-        "ffmpeg-v${_ELECTRON_VERSION}-linux-x64.zip" \
-        "ffmpeg-v${_ELECTRON_VERSION}-win32-arm64.zip" \
-        "ffmpeg-v${_ELECTRON_VERSION}-win32-ia32.zip" \
-        "ffmpeg-v${_ELECTRON_VERSION}-win32-x64.zip" \
-        "hunspell_dictionaries.zip" \
-        "libcxx-objects-v${_ELECTRON_VERSION}-linux-arm64.zip" \
-        "libcxx-objects-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
-        "libcxx-objects-v${_ELECTRON_VERSION}-linux-x64.zip" \
-        "libcxxabi_headers.zip" \
-        "libcxx_headers.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-linux-arm64-x64.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-linux-armv7l-x64.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-linux-x64.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-win32-arm64-x64.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-win32-ia32.zip" \
-        "mksnapshot-v${_ELECTRON_VERSION}-win32-x64.zip"
-    do
+
+    # electron
+    true && {
+        for i in \
+            "electron-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+            "electron-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+            "electron-v${_ELECTRON_VERSION}-linux-x64.zip" \
+            "electron-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+            "electron-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+            "electron-v${_ELECTRON_VERSION}-win32-x64.zip" \
+            "electron-api.json" \
+            "electron.d.ts"
+        do
             my_wget "${_ELECTRON_BASE_URL}/$i"
-    done
-    
+        done
+    }
+
+    # ffmpeg
+    true && {
+        for i in \
+            "ffmpeg-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+            "ffmpeg-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+            "ffmpeg-v${_ELECTRON_VERSION}-linux-x64.zip" \
+            "ffmpeg-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+            "ffmpeg-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+            "ffmpeg-v${_ELECTRON_VERSION}-win32-x64.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+        done
+    }
+
+    # chromedriver
+    true && {
+        for i in \
+            "chromedriver-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+            "chromedriver-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+            "chromedriver-v${_ELECTRON_VERSION}-linux-x64.zip" \
+            "chromedriver-v${_ELECTRON_VERSION}-win32-arm64.zip" \
+            "chromedriver-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+            "chromedriver-v${_ELECTRON_VERSION}-win32-x64.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+        done
+    }
+
+    # mksnapshot
+    true && {
+        for i in \
+            "mksnapshot-v${_ELECTRON_VERSION}-linux-arm64-x64.zip" \
+            "mksnapshot-v${_ELECTRON_VERSION}-linux-armv7l-x64.zip" \
+            "mksnapshot-v${_ELECTRON_VERSION}-linux-x64.zip" \
+            "mksnapshot-v${_ELECTRON_VERSION}-win32-arm64-x64.zip" \
+            "mksnapshot-v${_ELECTRON_VERSION}-win32-ia32.zip" \
+            "mksnapshot-v${_ELECTRON_VERSION}-win32-x64.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+        done
+    }
+
+    # libcxx
+    true && {
+        for i in \
+            "libcxx-objects-v${_ELECTRON_VERSION}-linux-arm64.zip" \
+            "libcxx-objects-v${_ELECTRON_VERSION}-linux-armv7l.zip" \
+            "libcxx-objects-v${_ELECTRON_VERSION}-linux-x64.zip" \
+            "libcxxabi_headers.zip" \
+            "libcxx_headers.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+        done
+    }
+
+    # hunspell_dictionaries
+    true && {
+        for i in \
+            "hunspell_dictionaries.zip"
+        do
+            my_wget "${_ELECTRON_BASE_URL}/$i"
+        done
+    }
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'ELECTRON download was disabled' >>"${_ARTIFACTS}/stderr.txt"
