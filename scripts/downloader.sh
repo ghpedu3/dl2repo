@@ -10,6 +10,7 @@ __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
+__ENABLE_DOWNLOAD_GOLANG="true"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
@@ -156,6 +157,43 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+_GOLANG_BASE_URL="https://dl.google.com/go"
+_GOLANG_VERSION="1.26.3"
+_GOLANG_BASE_NAME="go-${_GOLANG_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_GOLANG}" = "true" ] && {
+    mkdir -p "golang/${_GOLANG_BASE_NAME}"
+    cd "golang/${_GOLANG_BASE_NAME}" || exit $?
+    
+	for n in \
+        "src.tar.gz" \
+        "linux-386.tar.gz" \
+        "linux-amd64.tar.gz" \
+        "linux-arm64.tar.gz" \
+        "linux-armv6l.tar.gz" \
+        "windows-386.zip" \
+        "windows-386.msi" \
+        "windows-amd64.zip" \
+        "windows-amd64.msi" \
+        "freebsd-386.tar.gz" \
+        "freebsd-amd64.tar.gz" \
+        "freebsd-arm64.tar.gz" \
+        "netbsd-386.tar.gz" \
+        "netbsd-amd64.tar.gz" \
+        "netbsd-arm64.tar.gz" \
+        "openbsd-386.tar.gz" \
+        "openbsd-amd64.tar.gz" \
+        "openbsd-arm64.tar.gz" \
+        "windows-arm64.zip" \
+        "windows-arm64.msi"
+    do    
+        my_wget "${_GOLANG_BASE_URL}/go${_GOLANG_VERSION}.$n"
+    done
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GOLANG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
 _ELECTRON_DIST_BASE_URL="https://github.com/electron/electron/releases/download"
 _ELECTRON_VERSION="42.0.1"
 _ELECTRON_BASE_URL="${_ELECTRON_DIST_BASE_URL}/v${_ELECTRON_VERSION}"
@@ -198,7 +236,7 @@ _ELECTRON_BASE_NAME="electron-${_ELECTRON_VERSION}"
         "mksnapshot-v${_ELECTRON_VERSION}-win32-arm64-x64.zip" \
         "mksnapshot-v${_ELECTRON_VERSION}-win32-ia32.zip" \
         "mksnapshot-v${_ELECTRON_VERSION}-win32-x64.zip"
-        do
+    do
             my_wget "${_ELECTRON_BASE_URL}/$i"
     done
     
