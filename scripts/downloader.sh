@@ -90,39 +90,39 @@ true >"${_ARTIFACTS}/stderr.txt"
     mkdir -p "nodejs/${_NODE_BASE_NAME}"
     cd "nodejs/${_NODE_BASE_NAME}" || exit $?
     # linux
-    wget --continue "${_NODE_BASE_NAME_URL}-linux-armv7l.tar.xz"
-    wget --continue "${_NODE_BASE_NAME_URL}-linux-arm64.tar.xz"
-    wget --continue "${_NODE_BASE_NAME_URL}-linux-x64.tar.xz"
+    my_wget "${_NODE_BASE_NAME_URL}-linux-armv7l.tar.xz"
+    my_wget "${_NODE_BASE_NAME_URL}-linux-arm64.tar.xz"
+    my_wget "${_NODE_BASE_NAME_URL}-linux-x64.tar.xz"
     # win-x64
-    wget --continue "${_NODE_BASE_NAME_URL}-win-x64.7z"
-    wget --continue "${_NODE_BASE_NAME_URL}-x64.msi"
+    my_wget "${_NODE_BASE_NAME_URL}-win-x64.7z"
+    my_wget "${_NODE_BASE_NAME_URL}-x64.msi"
     # win-arm64
-    wget --continue "${_NODE_BASE_NAME_URL}-win-arm64.7z"
-    wget --continue "${_NODE_BASE_NAME_URL}-arm64.msi"
+    my_wget "${_NODE_BASE_NAME_URL}-win-arm64.7z"
+    my_wget "${_NODE_BASE_NAME_URL}-arm64.msi"
     # win-x86
-    wget --continue "${_NODE_BASE_NAME_URL}-win-x86.7z"
-    wget --continue "${_NODE_BASE_NAME_URL}-x86.msi"
+    my_wget "${_NODE_BASE_NAME_URL}-win-x86.7z"
+    my_wget "${_NODE_BASE_NAME_URL}-x86.msi"
     # src
-    wget --continue "${_NODE_BASE_NAME_URL}.tar.xz"
+    my_wget "${_NODE_BASE_NAME_URL}.tar.xz"
     # sdk headers
-    wget --continue "${_NODE_BASE_NAME_URL}-headers.tar.xz"
+    my_wget "${_NODE_BASE_NAME_URL}-headers.tar.xz"
     # sdk win-x64
     mkdir win-x64
     cd win-x64 || exit $?
-    wget --continue "${_NODE_BASE_URL}/win-x64/node.lib"
-    wget --continue "${_NODE_BASE_URL}/win-x64/node_pdb.7z"
+    my_wget "${_NODE_BASE_URL}/win-x64/node.lib"
+    my_wget "${_NODE_BASE_URL}/win-x64/node_pdb.7z"
     cd ..
     # sdk win-arm64
     mkdir win-arm64
     cd win-arm64 || exit $?
-    wget --continue "${_NODE_BASE_URL}/win-arm64/node.lib"
-    wget --continue "${_NODE_BASE_URL}/win-arm64/node_pdb.7z"
+    my_wget "${_NODE_BASE_URL}/win-arm64/node.lib"
+    my_wget "${_NODE_BASE_URL}/win-arm64/node_pdb.7z"
     cd ..
     # sdk win-x86
     mkdir win-x86
     cd win-x86 || exit $?
-    wget --continue "${_NODE_BASE_URL}/win-x86/node.lib"
-    wget --continue "${_NODE_BASE_URL}/win-x86/node_pdb.7z"
+    my_wget "${_NODE_BASE_URL}/win-x86/node.lib"
+    my_wget "${_NODE_BASE_URL}/win-x86/node_pdb.7z"
     cd ..
     
     cd "${_ARTIFACTS}"
@@ -138,21 +138,21 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
     mkdir -p "deno/${_DENO_BASE_NAME}"
     cd "deno/${_DENO_BASE_NAME}" || exit $?
     # linux-x64
-    wget --continue "${_DENO_BASE_URL}/deno-x86_64-unknown-linux-gnu.zip"
-    wget --continue "${_DENO_BASE_URL}/denort-x86_64-unknown-linux-gnu.zip"
+    my_wget "${_DENO_BASE_URL}/deno-x86_64-unknown-linux-gnu.zip"
+    my_wget "${_DENO_BASE_URL}/denort-x86_64-unknown-linux-gnu.zip"
     # linux-arm64
-    wget --continue "${_DENO_BASE_URL}/deno-aarch64-unknown-linux-gnu.zip"
-    wget --continue "${_DENO_BASE_URL}/denort-aarch64-unknown-linux-gnu.zip"
+    my_wget "${_DENO_BASE_URL}/deno-aarch64-unknown-linux-gnu.zip"
+    my_wget "${_DENO_BASE_URL}/denort-aarch64-unknown-linux-gnu.zip"
     # win-x64
-    wget --continue "${_DENO_BASE_URL}/deno-x86_64-pc-windows-msvc.zip"
-    wget --continue "${_DENO_BASE_URL}/denort-x86_64-pc-windows-msvc.zip"
+    my_wget "${_DENO_BASE_URL}/deno-x86_64-pc-windows-msvc.zip"
+    my_wget "${_DENO_BASE_URL}/denort-x86_64-pc-windows-msvc.zip"
     # win-arm64
-    wget --continue "${_DENO_BASE_URL}/deno-aarch64-pc-windows-msvc.zip"
-    wget --continue "${_DENO_BASE_URL}/denort-aarch64-pc-windows-msvc.zip"
+    my_wget "${_DENO_BASE_URL}/deno-aarch64-pc-windows-msvc.zip"
+    my_wget "${_DENO_BASE_URL}/denort-aarch64-pc-windows-msvc.zip"
     # src
-    wget --continue "${_DENO_BASE_URL}/deno_src.tar.gz"
+    my_wget "${_DENO_BASE_URL}/deno_src.tar.gz"
     # d.ts
-    wget --continue "${_DENO_BASE_URL}/lib.deno.d.ts"
+    my_wget "${_DENO_BASE_URL}/lib.deno.d.ts"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -275,25 +275,25 @@ _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
     mkdir -p "quickjs-ng/${_QJSNG_BASE_NAME}"
     cd "quickjs-ng/${_QJSNG_BASE_NAME}" || exit $?
     
-    wget --continue "${_QJSNG_BASE_URL}/qjs-darwin"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-aarch64"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-armv7"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-riscv64"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-x86"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-linux-x86_64"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-wasi-reactor.wasm"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-wasi.wasm"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-windows-x86.exe"
-    wget --continue "${_QJSNG_BASE_URL}/qjs-windows-x86_64.exe"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-darwin"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-aarch64"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-armv7"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-riscv64"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-x86"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-linux-x86_64"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86.exe"
-    wget --continue "${_QJSNG_BASE_URL}/qjsc-windows-x86_64.exe"
-    wget --continue "${_QJSNG_BASE_URL}/quickjs-amalgam.zip"
+    my_wget "${_QJSNG_BASE_URL}/qjs-darwin"
+    my_wget "${_QJSNG_BASE_URL}/qjs-linux-aarch64"
+    my_wget "${_QJSNG_BASE_URL}/qjs-linux-armv7"
+    my_wget "${_QJSNG_BASE_URL}/qjs-linux-riscv64"
+    my_wget "${_QJSNG_BASE_URL}/qjs-linux-x86"
+    my_wget "${_QJSNG_BASE_URL}/qjs-linux-x86_64"
+    my_wget "${_QJSNG_BASE_URL}/qjs-wasi-reactor.wasm"
+    my_wget "${_QJSNG_BASE_URL}/qjs-wasi.wasm"
+    my_wget "${_QJSNG_BASE_URL}/qjs-windows-x86.exe"
+    my_wget "${_QJSNG_BASE_URL}/qjs-windows-x86_64.exe"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-darwin"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-linux-aarch64"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-linux-armv7"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-linux-riscv64"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-linux-x86"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-linux-x86_64"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-windows-x86.exe"
+    my_wget "${_QJSNG_BASE_URL}/qjsc-windows-x86_64.exe"
+    my_wget "${_QJSNG_BASE_URL}/quickjs-amalgam.zip"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -308,20 +308,20 @@ _BUN_BASE_NAME="bun-v${_BUN_VERSION}"
     mkdir -p "bun/${_BUN_BASE_NAME}"
     cd "bun/${_BUN_BASE_NAME}" || exit $?
     # linux-x64
-    wget --continue "${_BUN_BASE_URL}/bun-linux-x64.zip"
-    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-baseline.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-x64.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-x64-baseline.zip"
     # linux-x64-musl
-    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-musl.zip"
-    wget --continue "${_BUN_BASE_URL}/bun-linux-x64-musl-baseline.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-x64-musl.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-x64-musl-baseline.zip"
     # linux-arm64
-    wget --continue "${_BUN_BASE_URL}/bun-linux-aarch64.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-aarch64.zip"
     # linux-arm64-musl
-    wget --continue "${_BUN_BASE_URL}/bun-linux-aarch64-musl.zip"
+    my_wget "${_BUN_BASE_URL}/bun-linux-aarch64-musl.zip"
     # win-x64
-    wget --continue "${_BUN_BASE_URL}/bun-windows-x64.zip"
-    wget --continue "${_BUN_BASE_URL}/bun-windows-x64-baseline.zip"
+    my_wget "${_BUN_BASE_URL}/bun-windows-x64.zip"
+    my_wget "${_BUN_BASE_URL}/bun-windows-x64-baseline.zip"
     # win-arm64
-    wget --continue "${_BUN_BASE_URL}/bun-windows-aarch64.zip"
+    my_wget "${_BUN_BASE_URL}/bun-windows-aarch64.zip"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -334,20 +334,20 @@ _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
     mkdir -p "bun/canary/${_BUN_CANARY_BASE_NAME}"
     cd "bun/canary/${_BUN_CANARY_BASE_NAME}" || exit $?
     # linux-x64
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-x64.zip"
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-x64-baseline.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-x64.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-x64-baseline.zip"
     # linux-x64-musl
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-x64-musl.zip"
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-x64-musl-baseline.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-x64-musl.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-x64-musl-baseline.zip"
     # linux-arm64
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-aarch64.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-aarch64.zip"
     # linux-arm64-musl
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-linux-aarch64-musl.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-linux-aarch64-musl.zip"
     # win-x64
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-x64.zip"
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-x64-baseline.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-windows-x64.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-windows-x64-baseline.zip"
     # win-arm64
-    wget --continue "${_BUN_CANARY_BASE_URL}/bun-windows-aarch64.zip"
+    my_wget "${_BUN_CANARY_BASE_URL}/bun-windows-aarch64.zip"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN_CANARY download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -365,40 +365,40 @@ _BBW32_BASE_NAME="busybox-w32-${_BBW32_BASE_VERSION}"
     mkdir -p "busybox-w32/${_BBW32_BASE_NAME}"
     cd "busybox-w32/${_BBW32_BASE_NAME}" || exit $?
 
-    wget --continue "${_BBW32_BASE_URL}/busybox-${_BBW32_VERSION}.1.gz"
-    wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.tgz"
-    wget --continue "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox-w64-${_BBW32_VERSION}.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox-w64u-${_BBW32_VERSION}.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox-w64a-${_BBW32_VERSION}.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox-${_BBW32_VERSION}.1.gz"
+    my_wget "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.tgz"
+    my_wget "${_BBW32_BASE_URL}/busybox-w32-${_BBW32_VERSION}.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox-w64-${_BBW32_VERSION}.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox-w64u-${_BBW32_VERSION}.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox-w64a-${_BBW32_VERSION}.exe"
 
     cd ..
     mkdir current
     cd current
     
-    wget --continue "${_BBW32_BASE_URL}/busybox.1.gz"
-    wget --continue "${_BBW32_BASE_URL}/busybox.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox64.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox64u.exe"
-    wget --continue "${_BBW32_BASE_URL}/busybox64a.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox.1.gz"
+    my_wget "${_BBW32_BASE_URL}/busybox.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox64.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox64u.exe"
+    my_wget "${_BBW32_BASE_URL}/busybox64a.exe"
 
     cd ..
     mkdir pre-release
     cd pre-release
 
-    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre.exe"
-    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre32w.exe"
-    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64.exe"
-    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64u.exe"
-    wget --continue "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64a.exe"
+    my_wget "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre.exe"
+    my_wget "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre32w.exe"
+    my_wget "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64.exe"
+    my_wget "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64u.exe"
+    my_wget "${_BBW32_PRE_RELEASE_BASE_URL}/busybox_pre64a.exe"
 
     cd ..
     mkdir release-notes
     cd release-notes
     
-    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/${_BBW32_BASE_VERSION}.html"
-    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/current.html"
-    wget --continue "${_BBW32_REL_NOTES_BASE_URL}/index.html"
+    my_wget "${_BBW32_REL_NOTES_BASE_URL}/${_BBW32_BASE_VERSION}.html"
+    my_wget "${_BBW32_REL_NOTES_BASE_URL}/current.html"
+    my_wget "${_BBW32_REL_NOTES_BASE_URL}/index.html"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BBW32 download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -412,15 +412,9 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
     mkdir -p "w64devkit/${_W64DEVKIT_BASE_NAME}"
     cd "w64devkit/${_W64DEVKIT_BASE_NAME}" || exit $?
     
-    wget --continue "${_W64DEVKIT_BASE_URL}/w64devkit-x64-${_W64DEVKIT_VERSION}.7z.exe"
-    wget --continue "${_W64DEVKIT_BASE_URL}/w64devkit-x86-${_W64DEVKIT_VERSION}.7z.exe"
-    # large file
-    true && {
-        wget --continue "${_W64DEVKIT_BASE_URL}/source.tar" && {
-            split --bytes=49MiB --numeric-suffixes=1 source.tar source.tar.part
-            rm source.tar
-        }
-    }
+    my_wget "${_W64DEVKIT_BASE_URL}/w64devkit-x64-${_W64DEVKIT_VERSION}.7z.exe"
+    my_wget "${_W64DEVKIT_BASE_URL}/w64devkit-x86-${_W64DEVKIT_VERSION}.7z.exe"
+    my_wget "${_W64DEVKIT_BASE_URL}/source.tar"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'W64DEVKIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -435,16 +429,16 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
     mkdir -p "tcmd/${_TCMD_BASE_NAME}"
     cd "tcmd/${_TCMD_BASE_NAME}" || exit $?
 
-    wget --continue "${_TCMD_BASE_URL}/tcmd.exe"
-    wget --continue "${_TCMD_BASE_URL}/tcc.exe"
-    wget --continue "${_TCMD_BASE_URL}/cmdebug.exe"
-    wget --continue "${_TCMD_BASE_URL}/tcc-rt.exe"
-    wget --continue "${_TCMD_BASE_URL}/TakeCommand.pdf"
-    wget --continue "${_TCMD_BASE_URL}/TakeCommand.ewriter"
-    wget --continue "${_TCMD_BASE_URL}/CMDebug.pdf"
-    wget --continue "${_TCMD_BASE_URL}/CMDebug.ewriter"
+    my_wget "${_TCMD_BASE_URL}/tcmd.exe"
+    my_wget "${_TCMD_BASE_URL}/tcc.exe"
+    my_wget "${_TCMD_BASE_URL}/cmdebug.exe"
+    my_wget "${_TCMD_BASE_URL}/tcc-rt.exe"
+    my_wget "${_TCMD_BASE_URL}/TakeCommand.pdf"
+    my_wget "${_TCMD_BASE_URL}/TakeCommand.ewriter"
+    my_wget "${_TCMD_BASE_URL}/CMDebug.pdf"
+    my_wget "${_TCMD_BASE_URL}/CMDebug.ewriter"
 
-    wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
+    my_wget "https://jpsoft.com/all-downloads/all-downloads.html"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -458,15 +452,15 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     mkdir -p "microsoft-edit/${_MSEDIT_BASE_NAME}"
     cd "microsoft-edit/${_MSEDIT_BASE_NAME}" || exit $?
     # linux-x64
-    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-linux-gnu.tar.gz"
+    my_wget "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-linux-gnu.tar.gz"
     # linux-arm64
-    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-linux-gnu.tar.gz"
+    my_wget "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-linux-gnu.tar.gz"
     # win-x64
-    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-windows.zip"
+    my_wget "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-x86_64-windows.zip"
     # win-arm64
-    wget --continue "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-windows.zip"
+    my_wget "${_MSEDIT_BASE_URL}/${_MSEDIT_BASE_NAME}-aarch64-windows.zip"
     # src
-    wget --content-disposition "https://github.com/microsoft/edit/archive/refs/tags/v${_MSEDIT_VERSION}.tar.gz"
+    my_wget "https://github.com/microsoft/edit/archive/refs/tags/v${_MSEDIT_VERSION}.tar.gz" "" --no-verbose --content-disposition
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSEDIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -478,29 +472,13 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
     cd "${_MSDEF_BASE_NAME}" || exit $?
 
     # x64
-    true && {
-        _MSDEF_NAME_X64="${_MSDEF_BASE_NAME}_x64.exe"
-        wget --no-verbose -O "${_MSDEF_NAME_X64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x64" && {
-                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X64}" "${_MSDEF_NAME_X64}.part"
-                rm "${_MSDEF_NAME_X64}"
-        }
-    }
+    my_wget "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x64" "${_MSDEF_BASE_NAME}_x64.exe"
+
     # x86
-    false && {
-        _MSDEF_NAME_X86="${_MSDEF_BASE_NAME}_x86.exe"
-        wget --no-verbose -O "${_MSDEF_NAME_X86}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x86" && {
-                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_X86}" "${_MSDEF_NAME_X86}.part"
-                rm "${_MSDEF_NAME_X86}"
-        }
-    }
+    # my_wget "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=x86" "${_MSDEF_BASE_NAME}_x86.exe"
+
     # arm64
-    false && {
-        _MSDEF_NAME_ARM64="${_MSDEF_BASE_NAME}_arm64.exe"
-        wget --no-verbose -O "${_MSDEF_NAME_ARM64}" "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=arm64" && {
-                split --bytes=49MiB --numeric-suffixes=1 "${_MSDEF_NAME_ARM64}" "${_MSDEF_NAME_ARM64}.part"
-                rm "${_MSDEF_NAME_ARM64}"
-        }
-    }
+    # my_wget "https://go.microsoft.com/fwlink/?LinkID=121721&clcid=0x409&arch=arm64" "${_MSDEF_BASE_NAME}_arm64.exe"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSDEF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -514,20 +492,20 @@ _GITHUB_CLI_BASE_NAME="gh_${_GITHUB_CLI_VERSION}"
     mkdir -p "gh/${_GITHUB_CLI_BASE_NAME}"
     cd "gh/${_GITHUB_CLI_BASE_NAME}" || exit $?
     # linux
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_386.tar.gz"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_amd64.tar.gz"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_arm64.tar.gz"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_386.tar.gz"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_amd64.tar.gz"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_linux_arm64.tar.gz"
     # win-x86
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.zip"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.msi"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_386.zip"
     # win-x64
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.zip"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.msi"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_amd64.zip"
     # win-arm64
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.msi"
-    wget --no-verbose "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.zip"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.msi"
+    my_wget "${_GITHUB_CLI_BASE_URL}/${_GITHUB_CLI_BASE_NAME}_windows_arm64.zip"
     # src
-    wget --no-verbose --content-disposition "https://github.com/cli/cli/archive/refs/tags/v${_GITHUB_CLI_VERSION}.tar.gz"
+    my_wget "https://github.com/cli/cli/archive/refs/tags/v${_GITHUB_CLI_VERSION}.tar.gz" "" --no-verbose --content-disposition
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITHUB_CLI download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -542,25 +520,25 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     mkdir -p "7zip/${_7ZIP_BASE_NAME}"
     cd "7zip/${_7ZIP_BASE_NAME}" || exit $?
 
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm.exe"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm64.exe"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-extra.7z"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm64.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x64.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x86.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-mac.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.7z"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.tar.xz"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.exe"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.msi"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.exe"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.msi"
-    wget --no-verbose "${_7ZIP_BASE_URL}/lzma${_7ZIP_VERSION/./}.7z"
-    wget --no-verbose "${_7ZIP_BASE_URL}/7zr.exe"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm.exe"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-arm64.exe"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-extra.7z"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-arm64.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x64.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-linux-x86.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-mac.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.7z"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-src.tar.xz"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.exe"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}-x64.msi"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.exe"
+    my_wget "${_7ZIP_BASE_URL}/7z${_7ZIP_VERSION/./}.msi"
+    my_wget "${_7ZIP_BASE_URL}/lzma${_7ZIP_VERSION/./}.7z"
+    my_wget "${_7ZIP_BASE_URL}/7zr.exe"
 
-    wget --no-verbose --content-disposition "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.tar.gz"
-    wget --no-verbose --content-disposition "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.zip"
+    my_wget "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.tar.gz" "" --no-verbose --content-disposition
+    my_wget "https://github.com/ip7z/7zip/archive/refs/tags/${_7ZIP_VERSION}.zip" "" --no-verbose --content-disposition
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo '7ZIP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -571,73 +549,46 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     cd "rubyinstaller" || exit $?
 
     # ruby-4.0
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-devkit-4.0.3-1-x64.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-4.0.3-1-x64.exe" "rubyinstaller-devkit-4.0.3-1-x64.exe.part"
-        rm "rubyinstaller-devkit-4.0.3-1-x64.exe"
-    }
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-devkit-4.0.3-1-x64.exe"
     # ruby-3.4    
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.4.9-1-x64.exe" "rubyinstaller-devkit-3.4.9-1-x64.exe.part"
-        rm "rubyinstaller-devkit-3.4.9-1-x64.exe"
-    }
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x86.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.4.9-1-x86.exe" "rubyinstaller-devkit-3.4.9-1-x86.exe.part"
-        rm "rubyinstaller-devkit-3.4.9-1-x86.exe"
-    }
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x86.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x86.exe"
     # ruby-3.3
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.3.11-1-x64.exe" "rubyinstaller-devkit-3.3.11-1-x64.exe.part"
-        rm "rubyinstaller-devkit-3.3.11-1-x64.exe"
-    }
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x86.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.3.11-1-x86.exe" "rubyinstaller-devkit-3.3.11-1-x86.exe.part"
-        rm "rubyinstaller-devkit-3.3.11-1-x86.exe"
-    }
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x86.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x86.exe"
     # ruby-3.2
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.2.11-1-x64.exe" "rubyinstaller-devkit-3.2.11-1-x64.exe.part"
-        rm "rubyinstaller-devkit-3.2.11-1-x64.exe"
-    }
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x86.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-3.2.11-1-x86.exe" "rubyinstaller-devkit-3.2.11-1-x86.exe.part"
-        rm "rubyinstaller-devkit-3.2.11-1-x86.exe"
-    }
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x86.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x86.exe"
     # ruby-2.7
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x64.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-2.7.8-1-x64.exe" "rubyinstaller-devkit-2.7.8-1-x64.exe.part"
-        rm "rubyinstaller-devkit-2.7.8-1-x64.exe"
-    }
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x86.exe" && {
-        split --bytes=49MiB --numeric-suffixes=1 "rubyinstaller-devkit-2.7.8-1-x86.exe" "rubyinstaller-devkit-2.7.8-1-x86.exe.part"
-        rm "rubyinstaller-devkit-2.7.8-1-x86.exe"
-    }
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x86.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x86.exe"
     # ruby-2.3
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-doc-chm.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-i386-mingw32.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-x64-mingw32.7z"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3-x64.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-doc-chm.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-i386-mingw32.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/ruby-2.3.3-x64-mingw32.7z"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/ruby-2.3.3/rubyinstaller-2.3.3-x64.exe"
     # DevKit 4.7.2 (20130224, Ruby 2.0 Edition)
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe"
-    wget --no-verbose "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe"
+    my_wget "https://github.com/oneclick/rubyinstaller/releases/download/devkit-4.7.2/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'RUBY_INSTALLER_WIN download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -650,30 +601,10 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     ChromeStandaloneSetup64="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BFDC21362-D83A-7CF4-7354-10A215B91416%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3D-arch_x64-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
     ChromeStandaloneSetup="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BFDC21362-D83A-7CF4-7354-10A215B91416%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3D-arch_x86-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup.exe"
 
-    true && {
-        wget "${GoogleChromeStandaloneEnterprise64}" && {
-                split --bytes=49MiB --numeric-suffixes=1 GoogleChromeStandaloneEnterprise64.msi GoogleChromeStandaloneEnterprise64.msi.part
-                rm GoogleChromeStandaloneEnterprise64.msi
-        }
-    }
-    false && {
-        wget "${GoogleChromeStandaloneEnterprise}" && {
-                split --bytes=49MiB --numeric-suffixes=1 GoogleChromeStandaloneEnterprise.msi GoogleChromeStandaloneEnterprise.msi.part
-                rm GoogleChromeStandaloneEnterprise.msi
-        }
-    }
-    false && {
-        wget "${ChromeStandaloneSetup64}" && {
-                split --bytes=49MiB --numeric-suffixes=1 ChromeStandaloneSetup64.exe ChromeStandaloneSetup64.exe.part
-                rm ChromeStandaloneSetup64.exe
-        }
-    }
-    false && {
-        wget "${ChromeStandaloneSetup}"&& {
-                split --bytes=49MiB --numeric-suffixes=1 ChromeStandaloneSetup.exe ChromeStandaloneSetup.exe.part
-                rm ChromeStandaloneSetup.exe
-        }
-    }
+    my_wget "${GoogleChromeStandaloneEnterprise64}"
+    # my_wget "${GoogleChromeStandaloneEnterprise}"
+    # my_wget "${ChromeStandaloneSetup64}"
+    # my_wget "${ChromeStandaloneSetup}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'CHROME download was disabled' >>"${_ARTIFACTS}/stderr.txt"
@@ -683,49 +614,40 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     mkdir "tmp"
     cd "tmp" || exit $?
 
-    # wget --continue "https://jpsoft.com/all-downloads/all-downloads.html"
-    # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching"
-    # wget --user-agent="Mozilla/5.0" --continue --content-disposition "https://en.wikipedia.org/api/rest_v1/page/pdf/Cranelift"
-    false && {
-        wget "https://download.sysinternals.com/files/SysinternalsSuite.zip" && {
-            split --bytes=49MiB --numeric-suffixes=1 SysinternalsSuite.zip SysinternalsSuite.zip.part
-            rm SysinternalsSuite.zip
-        }
-    }
-    # wget "https://download.sysinternals.com/files/PSTools.zip"
+    # my_wget "https://jpsoft.com/all-downloads/all-downloads.html"
+    # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
+    # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/Cranelift" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
 
-    # wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe"
-    # wget -O "git-windows-minimal.2.54.0.nupkg" "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0"
-    false && {
-        wget -O "gitforwindows.2.54.0.nupkg" "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" && {
-            split --bytes=49MiB --numeric-suffixes=1 gitforwindows.2.54.0.nupkg gitforwindows.2.54.0.nupkg.part
-            rm gitforwindows.2.54.0.nupkg
-        }
-    }
+    # my_wget "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+    # my_wget "https://download.sysinternals.com/files/PSTools.zip"
 
-    # wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-amd64.xz"
-    # wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-arm64.xz"
-    # wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-amd64.exe.xz"
-    # wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-amd64.exe.xz"
-    # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-386.xz"
-    # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-386.exe.xz"
-    # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-386.exe.xz"
-    # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd14-amd64.xz"
-    # wget --no-verbose "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-src-1.26.1.tar.gz"
+    # my_wget "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe"
+    # my_wget "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0" "git-windows-minimal.2.54.0.nupkg"
+    # my_wget "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" "gitforwindows.2.54.0.nupkg"
 
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/dokan.zip"
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetup.exe"
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetupDbg.exe"
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_ARM64.msi"
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x64.msi"
-    # wget --no-verbose "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x86.msi"
-    # wget --no-verbose "https://github.com/dokan-dev/dokan-dotnet/releases/download/v2.3.0.3/DokanNet.2.3.0.3.nupkg"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-amd64.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-arm64.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-amd64.exe.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-amd64.exe.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-386.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-386.exe.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-386.exe.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd14-amd64.xz"
+    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-src-1.26.1.tar.gz"
 
-    # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-6_7_1/innosetup-6.7.1.exe"
-    # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
-    # wget --no-verbose "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/dokan.zip"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetup.exe"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetupDbg.exe"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_ARM64.msi"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x64.msi"
+    # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/Dokan_x86.msi"
+    # my_wget "https://github.com/dokan-dev/dokan-dotnet/releases/download/v2.3.0.3/DokanNet.2.3.0.3.nupkg"
 
-    # wget --no-verbose --referer='https://chrome.google.com/webstore/detail/mmhpicejjhcogggmjagbbhgffbckmeic?hl=en' --user-agent='Mozilla/5.0 148.0.7778.97' -O 'mmhpicejjhcogggmjagbbhgffbckmeic.crx' 'https://clients2.google.com/service/update2/crx?response=redirect&os=Linux&arch=x86-64&os_arch=x86-64&prod=chromecrx&prodchannel=unknown&prodversion=148.0.7778.97&acceptformat=crx3&x=id%3Dmmhpicejjhcogggmjagbbhgffbckmeic%26uc'
+    # my_wget "https://github.com/jrsoftware/issrc/releases/download/is-6_7_1/innosetup-6.7.1.exe"
+    # my_wget "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x64.exe"
+    # my_wget "https://github.com/jrsoftware/issrc/releases/download/is-7_0_0_2/innosetup-7.0.0-preview-3-x86.exe"
+
+    # my_wget 'https://clients2.google.com/service/update2/crx?response=redirect&os=Linux&arch=x86-64&os_arch=x86-64&prod=chromecrx&prodchannel=unknown&prodversion=148.0.7778.97&acceptformat=crx3&x=id%3Dmmhpicejjhcogggmjagbbhgffbckmeic%26uc' 'mmhpicejjhcogggmjagbbhgffbckmeic.crx' --no-verbose --referer='https://chrome.google.com/webstore/detail/mmhpicejjhcogggmjagbbhgffbckmeic?hl=en' --user-agent='Mozilla/5.0 148.0.7778.97'
 
 	# my_wget "https://github.com/tinygo-org/tinygo/releases/download/v0.41.1/tinygo0.41.1.linux-amd64.tar.gz"
     # my_wget "https://github.com/tinygo-org/tinygo/releases/download/v0.41.1/tinygo0.41.1.windows-amd64.zip"
@@ -739,7 +661,3 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
-
-# wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-linux-arm64.tar.xz
-# wget https://nodejs.org/dist/v26.0.0/node-v26.0.0-win-x64.7z
-
