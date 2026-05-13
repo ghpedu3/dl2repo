@@ -2,7 +2,7 @@
 
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
-__ENABLE_DOWNLOAD_NODE="false"
+__ENABLE_DOWNLOAD_NODE="true"
 __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
@@ -72,7 +72,7 @@ _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
 _NODE_DIST_BASE_URL="https://nodejs.org/dist"
-_NODE_VERSION="22.22.2"
+_NODE_VERSION="22.22.3"
 _NODE_BASE_URL="${_NODE_DIST_BASE_URL}/v${_NODE_VERSION}"
 _NODE_BASE_NAME="node-v${_NODE_VERSION}"
 _NODE_BASE_NAME_URL="${_NODE_BASE_URL}/${_NODE_BASE_NAME}"
