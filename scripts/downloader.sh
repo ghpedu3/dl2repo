@@ -672,7 +672,11 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # my_wget "https://github.com/tinygo-org/tinygo/releases/download/v0.41.1/tinygo0.41.1.windows-amd64.zip"
 
 
-	 wget --mirror --convert-links --adjust-extension --page-requisites --no-parent "https://bun.com/blog/"
+    # my_wget "https://bun.com/blog/bun-v1.3.14/" "1.3.14.html"
+    # my_wget "https://bun.com/blog/bun-v1.3.13/" "1.3.13.html"
+	# my_wget "https://bun.com/blog/bun-v1.3.12/" "1.3.12.html"
+	# my_wget "https://bun.com/blog/bun-v1.3.11/" "1.3.11.html"
+	# my_wget "https://bun.com/blog/" "blog.html"
 	
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
