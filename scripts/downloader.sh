@@ -12,6 +12,7 @@ __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_GOLANG="false"
 __ENABLE_DOWNLOAD_MSGO="false"
+__ENABLE_DOWNLOAD_PWSH="true"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
@@ -544,6 +545,59 @@ _W64DEVKIT_BASE_NAME="w64devkit-${_W64DEVKIT_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'W64DEVKIT download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+_PWSH_DIST_BASE_URL="https://github.com/PowerShell/PowerShell/releases/download"
+_PWSH_VERSION="7.6.1"
+_PWSH_BASE_URL="${_PWSH_DIST_BASE_URL}/v${_PWSH_VERSION}"
+_PWSH_BASE_NAME="pwsh-${_PWSH_VERSION}"
+[ "${__ENABLE_DOWNLOAD_PWSH}" = "true" ] && {
+    mkdir -p "pwsh/${_PWSH_BASE_NAME}"
+    cd "pwsh/${_PWSH_BASE_NAME}" || exit $?
+    
+    my_wget "${_PWSH_BASE_URL}/hashes.sha256"
+    # linux-package
+    false && {
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-1.cm.aarch64.rpm"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-1.cm.x86_64.rpm"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-1.rh.x86_64.rpm"
+        my_wget "${_PWSH_BASE_URL}/powershell_${_PWSH_VERSION}-1.deb_amd64.deb"
+    }
+    # linux-archive
+    true && {
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-arm32.tar.gz"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-arm64.tar.gz"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-musl-x64.tar.gz"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-x64-fxdependent.tar.gz"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-x64-musl-noopt-fxdependent.tar.gz"
+        my_wget "${_PWSH_BASE_URL}/powershell-${_PWSH_VERSION}-linux-x64.tar.gz"
+    }
+    # win-x64
+    true && {
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-x64.msi"
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-x64.zip"
+    }
+    # win-x86
+    true && {
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-x86.msi"
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-x86.zip"
+    }
+    # win-arm64
+    false && {
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-arm64.msi"
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-arm64.zip"
+    }
+    # win-fxdependent
+    true && {
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-.zip"
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-fxdependentWinDesktop.zip"
+    }
+    # win-msixbundle
+    false && {
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}.msixbundle"
+    }
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'PWSH download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _TCMD_DIST_BASE_URL="https://jpsoft.com/downloads"
