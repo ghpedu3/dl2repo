@@ -785,10 +785,9 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/bun-v1.3.11/" "1.3.11.html"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
-    # mirror_site_wget "https://nodejs.org/dist/v26.1.0/docs/" "node_api_26.1.0"
-	# mirror_site_wget "https://nodejs.org/dist/v24.15.0/docs/" "node_api_24.15.0"
-	# mirror_site_wget "https://nodejs.org/dist/v22.22.3/docs/" "node_api_22.22.3"
-	get_node_api_docs '26.0.0'
+    # get_node_api_docs "26.1.0"
+	# get_node_api_docs "24.15.0"
+	# get_node_api_docs "22.22.3"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
