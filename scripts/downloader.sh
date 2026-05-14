@@ -588,7 +588,7 @@ _PWSH_BASE_NAME="pwsh-${_PWSH_VERSION}"
     }
     # win-fxdependent
     true && {
-        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-.zip"
+        my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-fxdependent.zip"
         my_wget "${_PWSH_BASE_URL}/PowerShell-${_PWSH_VERSION}-win-fxdependentWinDesktop.zip"
     }
     # win-msixbundle
