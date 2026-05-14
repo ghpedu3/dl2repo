@@ -102,7 +102,7 @@ mirror_site_wget() {
 	    echo "<html>"
         echo "<head>"
 	    echo "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >"
-	    echo "    <meta HTTP-EQUIV="\Refresh\" CONTENT=\"0; URL=./${url_path}/index.html\" >"
+	    echo "    <meta HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=./${url_path}/index.html\" >"
 	    echo "    <title>${MNAME}</title>"
         echo "</head>"
         echo "<!--"
