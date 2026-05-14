@@ -97,7 +97,18 @@ mirror_site_wget() {
 	echo "wget --execute='robots=off' --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent='${CONST_USER_AGENT}' '${URL}'"
 	wget --execute='robots=off' --mirror --execute='robots=off' --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent="${CONST_USER_AGENT}" "${URL}"
 	local url_component="${URL##*/}"
-	local url_path="${URL%$url_component}"
+	local url_path="${URL%/$url_component}"
+	local _url_path="${url_path/https:\/\//}"
+	[ "${url_path}" = "${_url_path}" ] && {
+	    _url_path="${url_path/http:\/\//}"
+	    [ "${url_path}" = "${_url_path}" ] && {
+	        url_path="${url_path/ftp:\/\//}"
+	    } || {
+	        url_path="${_url_path}"
+	    }
+	} || {
+	    url_path="${_url_path}"
+	}
 	{
 	    echo "<html>"
         echo "<head>"
