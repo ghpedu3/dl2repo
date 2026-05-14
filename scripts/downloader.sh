@@ -762,7 +762,10 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
     mirror_site_wget "https://nodejs.org/dist/v26.1.0/docs/" "node_api_26.1.0"
-	wget "nodejs.org/robots.txt"
+	wget "https://nodejs.org/robots.txt"
+	wget "https://nodejs.org/dist/"
+	wget "https://nodejs.org/docs/"
+	wget "https://nodejs.org/api/"
 	
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
