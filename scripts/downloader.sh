@@ -139,6 +139,19 @@ mirror_site_wget() {
 	cd ..
 }
 
+get_node_api_docs() {
+    local NODE_VERSION=''
+    LOCAL URL=''
+
+    [ "${1:+#}#" = "#" ] && {
+		echo node version not specified
+		return 1;
+	}
+	NODE_VERSION="${1}"
+	URL="https://nodejs.org/dist/v${NODE_VERSION}/docs/"
+	wget --no-verbose --spider "${URL}" && mirror_site_wget "${URL}" "node_api_${NODE_VERSION}"
+}
+
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
