@@ -16,6 +16,7 @@ __ENABLE_DOWNLOAD_PWSH="false"
 __ENABLE_DOWNLOAD_TCMD="false"
 __ENABLE_DOWNLOAD_CHROME="false"
 __ENABLE_DOWNLOAD_MSEDIT="false"
+__ENABLE_DOWNLOAD_VSCODE="true"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
@@ -622,6 +623,116 @@ _TCMD_BASE_NAME="tcmd-${_TCMD_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TCMD download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_VSCODE_DIST_BASE_URL="https://update.code.visualstudio.com"
+_VSCODE_VERSION="1.120.0"
+_VSCODE_BASE_URL="${_VSCODE_DIST_BASE_URL}/${_VSCODE_VERSION}"
+_VSCODE_BASE_NAME="vscode-${_VSCODE_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_VSCODE}" = "true" ] && {
+    mkdir -p "vscode/${_VSCODE_BASE_NAME}"
+    cd "vscode/${_VSCODE_BASE_NAME}" || exit $?
+    
+	# win-x64
+    true && {
+        # Windows x64 System installer
+        my_wget "${_VSCODE_BASE_URL}/win32-x64/stable" "" --no-verbose --content-disposition
+
+        # Windows x64 User installer
+        my_wget "${_VSCODE_BASE_URL}/win32-x64-user/stable" "" --no-verbose --content-disposition
+
+        # Windows x64 zip
+        my_wget "${_VSCODE_BASE_URL}/win32-x64-archive/stable" "" --no-verbose --content-disposition
+
+        # Windows x64 CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-win32-x64/stable" "" --no-verbose --content-disposition
+    }
+
+    # win-arm64
+    false && {
+        # Windows Arm64 System installer
+        my_wget "${_VSCODE_BASE_URL}/win32-arm64/stable" "" --no-verbose --content-disposition
+
+        # Windows Arm64 User installer
+        my_wget "${_VSCODE_BASE_URL}/win32-arm64-user/stable" "" --no-verbose --content-disposition
+
+        # Windows Arm64 zip
+        my_wget "${_VSCODE_BASE_URL}/win32-arm64-archive/stable" "" --no-verbose --content-disposition
+
+        # Windows Arm64 CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-win32-arm64/stable" "" --no-verbose --content-disposition
+    }
+
+    # linux-x64
+    false && {
+        # Linux x64
+        my_wget "${_VSCODE_BASE_URL}/linux-x64/stable" "" --no-verbose --content-disposition
+
+        # Linux x64 debian
+        my_wget "${_VSCODE_BASE_URL}/linux-deb-x64/stable" "" --no-verbose --content-disposition
+
+        # Linux x64 rpm
+        my_wget "${_VSCODE_BASE_URL}/linux-rpm-x64/stable" "" --no-verbose --content-disposition
+
+        # Linux x64 snap
+        my_wget "${_VSCODE_BASE_URL}/linux-snap-x64/stable" "" --no-verbose --content-disposition
+
+        # Linux x64 CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-linux-x64/stable" "" --no-verbose --content-disposition
+    }
+
+    # linux-arm32
+    false && {
+        # Linux Arm32
+        my_wget "${_VSCODE_BASE_URL}/linux-armhf/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm32 debian
+        my_wget "${_VSCODE_BASE_URL}/linux-deb-armhf/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm32 rpm
+        my_wget "${_VSCODE_BASE_URL}/linux-rpm-armhf/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm32 CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-linux-armhf/stable" "" --no-verbose --content-disposition
+    }
+
+    # linux-arm64
+    false && {
+        # Linux Arm64
+        my_wget "${_VSCODE_BASE_URL}/linux-arm64/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm64 debian
+        my_wget "${_VSCODE_BASE_URL}/linux-deb-arm64/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm64 rpm
+        my_wget "${_VSCODE_BASE_URL}/linux-rpm-arm64/stable" "" --no-verbose --content-disposition
+
+        # Linux Arm64 CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-linux-arm64/stable" "" --no-verbose --content-disposition
+    }
+
+    # macOS
+    false && {
+        # macOS Universal
+        my_wget "${_VSCODE_BASE_URL}/darwin-universal/stable" "" --no-verbose --content-disposition
+
+        # macOS Intel chip
+        my_wget "${_VSCODE_BASE_URL}/darwin/stable" "" --no-verbose --content-disposition
+
+        # macOS Intel chip CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-darwin-x64/stable" "" --no-verbose --content-disposition
+
+        # macOS Apple silicon
+        my_wget "${_VSCODE_BASE_URL}/darwin-arm64/stable" "" --no-verbose --content-disposition
+
+        # macOS Apple silicon CLI
+        my_wget "${_VSCODE_BASE_URL}/cli-darwin-arm64/stable" "" --no-verbose --content-disposition
+    }
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'VSCODE download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 
 _MSEDIT_DIST_BASE_URL="https://github.com/microsoft/edit/releases/download"
 _MSEDIT_VERSION="2.0.0"
