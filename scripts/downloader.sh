@@ -772,7 +772,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/bun-v1.3.11/" "1.3.11.html"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
-    mirror_site_wget "https://nodejs.org/dist/v26.1.0/docs/" "node_api_26.1.0"
+    # mirror_site_wget "https://nodejs.org/dist/v26.1.0/docs/" "node_api_26.1.0"
 	# mirror_site_wget "https://nodejs.org/dist/v24.15.0/docs/" "node_api_24.15.0"
 	# mirror_site_wget "https://nodejs.org/dist/v22.22.3/docs/" "node_api_22.22.3"
 
