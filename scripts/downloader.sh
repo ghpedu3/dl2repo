@@ -91,7 +91,7 @@ mirror_site_wget() {
 		return 1;
 	}
 
-	mkdir -p "wget-mirror\${MNANE}" || return 1
+	mkdir -p "wget-mirror\${MNAME}" || return 1
 	cd "wget-mirror\${MNAME}" || return 1
 	
 	echo "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent='${CONST_USER_AGENT}' '${URL}'"
