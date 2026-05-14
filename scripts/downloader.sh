@@ -68,6 +68,66 @@ my_wget() {
 	rm -rf "$TMP_DIR"
 }
 
+# mirror_site_wget <url> <mirror_name>
+mirror_site_wget() {
+    local CONST_USER_AGENT="Mozilla/5.0"
+    local URL=''
+	local MNANE=''
+
+	[ "${1:+#}#" = "#" ] && {
+		echo URL not specified
+		return 1;
+	}
+	URL="${1}"
+	shift
+
+	[ "${1:+#}#" = "#" ] && {
+		echo Mirror name not specified
+		return 1;
+	}
+	MNAME="${1##*/}"
+	[ "${MNAME:+#}#" = "#" ] && {
+		echo Mirror name not specified
+		return 1;
+	}
+
+	mkdir -p "wget-mirror\${MNANE}" || return 1
+	cd "wget-mirror\${MNAME}" || return 1
+	
+	echo "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent='${CONST_USER_AGENT}' '${URL}'"
+	wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent="${CONST_USER_AGENT}" "${URL}"
+	local url_component="${URL##*/}"
+	local url_path="${URL%$url_component}"
+	{
+	    echo "<html>"
+        echo "<head>"
+	    echo "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >"
+	    echo "    <meta HTTP-EQUIV="\Refresh\" CONTENT=\"0; URL=./${url_path}/index.html\" >"
+	    echo "    <title>${MNAME}</title>"
+        echo "</head>"
+        echo "<!--"
+        echo "    wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --user-agent='${CONST_USER_AGENT}' '${URL}'"
+        echo "-->"
+        echo "</html>"
+	} > "index.html"
+
+	cd ..
+	local TAR_NAME="${MNAME}.tar.gz"
+	echo "tar -czf '${TAR_NAME}' '${MNAME}'"
+	tar -czf "${TAR_NAME}" "${MNAME}" && {
+	    rm -rf "${MNAME}"
+	    local SIZE=0
+	    SIZE=$(stat -c%s "${TAR_NAME}")
+	    [ ${SIZE} -gt $((49 * 1024 * 1024)) ] && {
+	        echo "split --bytes=49MiB --numeric-suffixes=1 '${TAR_NAME}' '${TAR_NAME}.part'"
+	        split --bytes=49MiB --numeric-suffixes=1 "${TAR_NAME}" "${TAR_NAME}.part"
+	        rm "${TAR_NAME}"
+	    }
+	    true
+	} || rm -rf "${MNAME}"
+	cd ..
+}
+
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
