@@ -94,8 +94,8 @@ mirror_site_wget() {
 	mkdir -p "wget-mirror/${MNAME}" || return 1
 	cd "wget-mirror/${MNAME}" || return 1
 	
-	echo "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent='${CONST_USER_AGENT}' '${URL}'"
-	wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent="${CONST_USER_AGENT}" "${URL}"
+	echo "wget --execute='robots=off' --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent='${CONST_USER_AGENT}' '${URL}'"
+	wget --execute='robots=off' --mirror --execute='robots=off' --convert-links --adjust-extension --page-requisites --no-parent --no-verbose --user-agent="${CONST_USER_AGENT}" "${URL}"
 	local url_component="${URL##*/}"
 	local url_path="${URL%$url_component}"
 	{
@@ -106,7 +106,7 @@ mirror_site_wget() {
 	    echo "    <title>${MNAME}</title>"
         echo "</head>"
         echo "<!--"
-        echo "    wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --user-agent='${CONST_USER_AGENT}' '${URL}'"
+        echo "    wget --execute='robots=off' --mirror --convert-links --adjust-extension --page-requisites --no-parent --user-agent='${CONST_USER_AGENT}' '${URL}'"
         echo "-->"
         echo "</html>"
 	} > "index.html"
