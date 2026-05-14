@@ -844,8 +844,10 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# get_node_api_docs "22.22.3"
 
 	for i in 832 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849; do
-        my_wget "https://bcxbasiccoders.com/archives/YahooGroups/Bcx_Files_New/Bcx${i}.zip" "" --no-verbose --user-agent="Mozilla/5.0" --referer="https://bcxbasiccoders.com/smf/"
+        # my_wget "https://bcxbasiccoders.com/archives/YahooGroups/Bcx_Files_New/Bcx${i}.zip" "" --no-verbose --user-agent="Mozilla/5.0" --referer="https://bcxbasiccoders.com/smf/"
     done
+
+	wget "https://www.bcxbasiccoders.com/"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
