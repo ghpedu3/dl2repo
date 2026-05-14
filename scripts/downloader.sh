@@ -843,5 +843,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# get_node_api_docs "24.15.0"
 	# get_node_api_docs "22.22.3"
 
+	my_wget "https://bcxbasiccoders.com/archives/YahooGroups/Bcx_Files_New/"
+
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
