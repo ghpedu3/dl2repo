@@ -2,7 +2,7 @@
 
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
-__ENABLE_DOWNLOAD_NODE="true"
+__ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
@@ -951,7 +951,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
     # get_node_api_docs "26.2.0"
-    get_node_api_docs "24.16.0"
+    # get_node_api_docs "24.16.0"
     # get_node_api_docs "22.22.3"
 
     cd "${_ARTIFACTS}"
