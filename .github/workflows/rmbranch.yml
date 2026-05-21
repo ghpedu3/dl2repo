@@ -1,14 +1,27 @@
+
 name: rmBranch
 run-name: Remove Branch
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      brnames:
+        description: "Space separated branch names"
+        required: true
+        default: ""
 env:
-  BRANCH_NAME: artifacts-20260521-131722-530781093
+  BRANCH_NAMES: ${{ github.event.inputs.brnames }}
 
 jobs:
   Remove-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Remove branch
-        id: commit
         run: |
-          curl -s -X DELETE -u username:"${{secrets.GITHUB_TOKEN}}" "https://api.github.com/repos/${{ github.repository }}/git/refs/heads/${{ env.BRANCH_NAME }}"
+          [ "${BRANCH_NAMES:+#}#" = "##" ] && {
+              for _branch in ${BRANCH_NAMES}; do
+                  [ "${_branch}" != "main" ] && [ "${_branch}" != "master" ] && {
+                      curl -s -X DELETE -u username:"${{secrets.GITHUB_TOKEN}}" "https://api.github.com/repos/${{ github.repository }}/git/refs/heads/${_branch}"
+                  }
+              done
+          }
+          true
