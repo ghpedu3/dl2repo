@@ -2,7 +2,7 @@
 
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
-__ENABLE_DOWNLOAD_NODE="false"
+__ENABLE_DOWNLOAD_NODE="true"
 __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
@@ -158,7 +158,7 @@ _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
 _NODE_DIST_BASE_URL="https://nodejs.org/dist"
-_NODE_VERSION="22.22.3"
+_NODE_VERSION="26.2.0"
 _NODE_BASE_URL="${_NODE_DIST_BASE_URL}/v${_NODE_VERSION}"
 _NODE_BASE_NAME="node-v${_NODE_VERSION}"
 _NODE_BASE_NAME_URL="${_NODE_BASE_URL}/${_NODE_BASE_NAME}"
@@ -950,7 +950,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/bun-v1.3.11/" "1.3.11.html"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
-    # get_node_api_docs "26.1.0"
+    get_node_api_docs "26.2.0"
 	# get_node_api_docs "24.15.0"
 	# get_node_api_docs "22.22.3"
 
