@@ -954,5 +954,172 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # get_node_api_docs "24.16.0"
     # get_node_api_docs "22.22.3"
 
+
+
+
+
+# /**********
+
+_dir="github.githubassets.com/assets"
+mkdir -p "${_dir}"
+pushd "{_dir}"
+
+my_wget 'https://github.githubassets.com/assets/light-4fded0090af0ad58.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/dark-06381ff23d863842.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-primitives-b39ad27f3538ace3.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-tailwind-compatible-f6d3d8f030269244.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/global-9c8f61f9f58ad7b2.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/github-be05a7e2c0ccd82f.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/tailwind-d018ebb1340f097f.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/repository-5c3491d57145b94f.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/code-34e10031edc15af1.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/wp-runtime-e8b206e20d6d7bbb.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/fetch-utilities-b82d70fb3b7c15af.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/78205-a328faf42e1fde9e.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/85924-1f0f5f61600f9c8e.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/34646-0b1ef764f04384f8.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/environment-d69fe59c085ecc72.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/runtime-helpers-6e561c87b9671d53.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/296-b57454e133edfa64.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/96232-069a02c82c8693ee.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/57131-79aa62319c40af83.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/816-774d14a8cd9b309c.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/79280-d76a66e0574d2c2d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/81683-58949462db0c5675.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/46740-4421ca06d57312cc.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/82097-deb8524559e82c88.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/30058-edeab9486bacdd1a.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/github-elements-aa06f97004324c94.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/element-registry-c07fced853e9f5bc.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/react-core-dadcfce67bf6932a.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/react-lib-e93338a8d08b8bb9.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/79039-f2b81734929d0b15.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/88475-92437d3f8c9a9747.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/2887-d67f71d8e1d3e1d8.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/26533-318ac47648fb7752.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/46477-596c4ee4da73ac9a.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/34771-52ff9a0204045b56.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/33232-a61b173cd548f3cb.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/46287-fc23b9847d26823b.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/28000-450a3042fe455862.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/89627-12a64f4329866bd1.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/55682-a358ec7c2f348fcf.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/49029-3a132de206358025.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/99328-82a96596275fbd3e.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/behaviors-eb258e42b23869c8.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/react-core.bdacde97e4ec0e99.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/61272-d797d8a9ce83f9c1.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/notifications-global-be20ba1998b9a752.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/57639-ed467af96719bd33.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/778-a664589d50af677a.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/70206-61154d4f392ace98.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/19930-9d606db64e5e8a82.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/repositories-a46ab7774ff6ab75.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-react-d152c207c2235650.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/octicons-react-fa41822493eeb852.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/97698-c2ef7228d0c1e6c7.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/24949-7df9a84e133032e5.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/68751-3dce390992441fd6.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/26958-b75de923c35f85c1.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/437-910fdcc156bd331b.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/29844-c0bd6ecd0a224f40.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/15272-37128cbcef9c407d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/90017-ec023615229a20a1.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/24564-14df7faa28380ddf.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/5507-0ce7a9ba512e9ca3.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/24520-3be16f0458effc22.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/25164-4185d9d47e586cea.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/41417-be5311ec2e064599.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/45442-5001a7084436fa0f.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/10944-8d6b43dc7e129f90.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/87954-50e37877c32c3e36.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/65354-1edcfc5ed9f583c7.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/58636-2058123be0cade25.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/5015-8d2ffcf3d8794a71.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/82345-797380966dc35469.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/40145-ff486a4594e63459.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/58246-4ba5ac2265364faa.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/96522-0be17c3c4593a419.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/12612-30dde4e195f84e7d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/98356-721f5a5b43ebdf7f.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/37494-8ad7eb20aa952a1d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/68469-79baed2a4e2068eb.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/74444-caa64168e8e77f1c.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/40828-b87e73333d92bc0d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/32033-7092ee28456d0c9c.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/75740-96f680cbcbf41dde.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/63000-72d947f3c46087f0.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/6849-49346f11d81ad429.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/30914-7ba0116fd9aa8391.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/1334-b006fc225cccabf7.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/79407-e53b8892ea29c60d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/72955-e275eec42ae0ca34.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/78816-604d6a256503eea0.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/11059-3123361cd25d417f.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/19838-e41ffea284ea4cfe.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/91982-07d37e59d7185ef3.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/2204-cb10cab94072aae5.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/68212-a1d5f5bbacc287f0.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/34469-ca354f16681e6315.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/15151-d56fdcef6cbca06e.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/12377-eef88ceef1792a7d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/87894-46788aff18f38cc3.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/21625-bbb75aec387a2192.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/12912-cd6be88c5b08760d.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/23550-cc333fdff19339e4.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/29689-8b05ad0c1915d6e1.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/69317-44118410b3ec70e5.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/19824-1aec924fde1baf1e.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/43623-64217aa7fc715cb2.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/79625-a7e68e4d59374e94.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/97562-9a810293bc84d9d9.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/2165-ae2934ba54284866.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/14197-127bdbfb2dcc3ea2.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/commits-c057a8c06a5b4725.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-react-css.ac981de652dc3db9.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/6849.c5c7d862d1c4d2f6.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/78816.c5f3d1eba97d6b93.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/12377.183edf4eb71e673b.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/69317.14cbd3a8e68217e8.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/14197.cd99a0d2c53a83f0.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/commits.ef7d505ac700c3b7.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-react-css.ac981de652dc3db9.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/keyboard-shortcuts-dialog.17facd6dcac95d36.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/global-nav-bar.7fd3d877f3f31ae9.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/primer-react-css.ac981de652dc3db9.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/apple-touch-icon-144x144-b882e354c005.png' '' --no-verbose --continue
+
+popd
+_dir="github.githubassets.com/favicons"
+mkdir -p "${_dir}"
+pushd "{_dir}"
+
+my_wget 'https://github.githubassets.com/favicons/favicon.svg' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/favicons/favicon.png' '' --no-verbose --continue
+
+popd
+_dir="avatars.githubusercontent.com/u"
+mkdir -p "${_dir}"
+pushd "{_dir}"
+
+my_wget 'https://avatars.githubusercontent.com/u/164553489?v=4&size=64' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/278781274?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/17734409?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/13602871?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/39903?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/42860321?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/1609021?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/279198639?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/34997667?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/280062030?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/13135287?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/13602871?v=4&size=32' '' --no-verbose --continue
+my_wget 'https://avatars.githubusercontent.com/u/17734409?v=4&size=32' '' --no-verbose --continue
+
+popd
+
+# **********/
+
+
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
