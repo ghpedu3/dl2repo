@@ -962,7 +962,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 
 _dir="github.githubassets.com/assets"
 mkdir -p "${_dir}"
-pushd "{_dir}"
+pushd "${_dir}"
 
 my_wget 'https://github.githubassets.com/assets/light-4fded0090af0ad58.css' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/dark-06381ff23d863842.css' '' --no-verbose --continue
@@ -1092,7 +1092,7 @@ my_wget 'https://github.githubassets.com/assets/apple-touch-icon-144x144-b882e35
 popd
 _dir="github.githubassets.com/favicons"
 mkdir -p "${_dir}"
-pushd "{_dir}"
+pushd "${_dir}"
 
 my_wget 'https://github.githubassets.com/favicons/favicon.svg' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/favicons/favicon.png' '' --no-verbose --continue
@@ -1100,7 +1100,7 @@ my_wget 'https://github.githubassets.com/favicons/favicon.png' '' --no-verbose -
 popd
 _dir="avatars.githubusercontent.com/u"
 mkdir -p "${_dir}"
-pushd "{_dir}"
+pushd "${_dir}"
 
 my_wget 'https://avatars.githubusercontent.com/u/164553489?v=4&size=64' '' --no-verbose --continue
 my_wget 'https://avatars.githubusercontent.com/u/278781274?v=4&size=32' '' --no-verbose --continue
