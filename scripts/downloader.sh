@@ -2,13 +2,13 @@
 
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
-__ENABLE_DOWNLOAD_NODE="true"
+__ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
-__ENABLE_DOWNLOAD_BBW32="false"
+__ENABLE_DOWNLOAD_BBW32="true"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_GOLANG="false"
 __ENABLE_DOWNLOAD_MSGO="false"
@@ -950,7 +950,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 	# my_wget "https://bun.com/blog/bun-v1.3.11/" "1.3.11.html"
 	# my_wget "https://bun.com/blog/" "blog.html"
 
-    get_node_api_docs "26.2.0"
+    # get_node_api_docs "26.2.0"
 	# get_node_api_docs "24.15.0"
 	# get_node_api_docs "22.22.3"
 
