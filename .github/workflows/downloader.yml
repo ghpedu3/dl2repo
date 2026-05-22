@@ -30,7 +30,6 @@ jobs:
           rm -rf ${{ github.workspace }}/.github/
           rm -rf ${{ github.workspace }}/scripts/
           rm ${{ github.workspace }}/*.md
-          echo "${{ github.repository }}"  > repo.txt
           git init
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
