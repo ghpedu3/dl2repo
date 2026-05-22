@@ -997,6 +997,7 @@ my_wget 'https://github.githubassets.com/assets/19322-47dd260e76848a2b.js' '' --
 my_wget 'https://github.githubassets.com/assets/org-repos-list-acbc68a91ea5945f.js' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/19322.b4b625f5b431f53a.module.css' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/org-repos-list.456ef2ef54cca7da.module.css' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/wp-runtime-c328d44c88f4f7bd.js' '' --no-verbose --continue
 
 
 # **********/
