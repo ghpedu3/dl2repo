@@ -961,43 +961,10 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 # /**********
 
 
-my_wget 'https://github.githubassets.com/assets/drafts-upgrade-dialog-component-9526403ef3081b77.css' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/hero-image-dark-80c28385b9d0.png' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-63759-39e313be6d391c34.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-73980-c6bd1fbc6870ceae.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-63759-39e313be6d391c34.js?&r=1' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-73980-c6bd1fbc6870ceae.js?&r=1' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-63759-39e313be6d391c34.js?&r=2' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-73980-c6bd1fbc6870ceae.js?&r=2' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-63759-39e313be6d391c34.js?&r=3' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-73980-c6bd1fbc6870ceae.js?&r=3' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/favicons/favicon-failure-dark.svg' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/favicons/favicon-failure-dark.png' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-55183-e0686325cd3370bf.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-55183-e0686325cd3370bf.js?&r=1' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-55183-e0686325cd3370bf.js?&r=2' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-55183-e0686325cd3370bf.js?&r=3' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-86089-507fbbe30b04c158.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-66284-53da2cc5fecd6091.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-86089-507fbbe30b04c158.js?&r=1' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-66284-53da2cc5fecd6091.js?&r=1' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-86089-507fbbe30b04c158.js?&r=2' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-66284-53da2cc5fecd6091.js?&r=2' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-86089-507fbbe30b04c158.js?&r=3' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/chunk-66284-53da2cc5fecd6091.js?&r=3' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/orgs-df86bb222552daaf.css' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/81141-ea44a2667b922802.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/46757-a137288f02c4b6ff.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/organizations-b6ae4e3c24b7de34.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/navigation-popover-eaf18ed50f85906e.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/75049-a748248fc2de00ff.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/97854-0243ec4d50d61df2.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/49194-4fed385bddad04f0.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/19322-47dd260e76848a2b.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/org-repos-list-acbc68a91ea5945f.js' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/19322.b4b625f5b431f53a.module.css' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/org-repos-list.456ef2ef54cca7da.module.css' '' --no-verbose --continue
-my_wget 'https://github.githubassets.com/assets/wp-runtime-c328d44c88f4f7bd.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js?&r=1' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js?&r=2' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js?&r=3' '' --no-verbose --continue
 
 
 # **********/
