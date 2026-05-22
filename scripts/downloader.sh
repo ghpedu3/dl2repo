@@ -955,15 +955,20 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # get_node_api_docs "22.22.3"
 
 
+    my_wget 'https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64'
+    my_wget 'https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-arm'
+    my_wget 'https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-arm64'
+    my_wget 'https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-windows-amd64.exe'
+    my_wget 'https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-windows-arm64.exe'
 
 
 
-# /**********
+    # /**********
 
 
 
 
-# **********/
+    # **********/
 
 
     cd "${_ARTIFACTS}"
