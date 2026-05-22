@@ -961,6 +961,8 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 # /**********
 
 
+my_wget 'https://github.githubassets.com/assets/55910-58c79e15f4319069.js' '' --no-verbose --continue
+my_wget 'https://github.githubassets.com/assets/workflow-runs-c7ec6320055197b7.js' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js?&r=1' '' --no-verbose --continue
 my_wget 'https://github.githubassets.com/assets/75521-2eb33a5ab71ec85b.js?&r=2' '' --no-verbose --continue
