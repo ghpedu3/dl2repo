@@ -3,7 +3,7 @@
 # direct link base
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
 __ENABLE_DOWNLOAD_NODE="false"
-__ENABLE_DOWNLOAD_DENO="false"
+__ENABLE_DOWNLOAD_DENO="true"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_BUN="false"
@@ -216,7 +216,7 @@ true >"${_ARTIFACTS}/stderr.txt"
 
 
 _DENO_DIST_BASE_URL="https://github.com/denoland/deno/releases/download"
-_DENO_VERSION="2.7.14"
+_DENO_VERSION="2.8.0"
 _DENO_BASE_URL="${_DENO_DIST_BASE_URL}/v${_DENO_VERSION}"
 _DENO_BASE_NAME="deno-${_DENO_VERSION}"
 
