@@ -981,7 +981,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # my_wget 'https://github.com/AutoHotkey/Ahk2Exe/releases/download/Ahk2Exe1.1.37.02a2/Ahk2Exe1.1.37.02a2.zip'
 
 
-    true && {
+    false && {
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SDKRef.pdf'
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SHA256SUMS'
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/UserManual.pdf'
