@@ -980,9 +980,20 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # my_wget 'https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.26/AutoHotkey_2.0.26.zip'
     # my_wget 'https://github.com/AutoHotkey/Ahk2Exe/releases/download/Ahk2Exe1.1.37.02a2/Ahk2Exe1.1.37.02a2.zip'
 
+
+    true && {
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SDKRef.pdf'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SHA256SUMS'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/UserManual.pdf'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/VBoxGuestAdditions_7.2.8.iso'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/VirtualBox-7.2.8-173730-Win.exe'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/VirtualBox-7.2.8.tar.bz2'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/VirtualBoxSDK-7.2.8-173730.zip'
+        my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/Oracle_VirtualBox_Extension_Pack-7.2.8-173730.vbox-extpack'
+    }
+
     # /**********
 
-my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/'
 
 
     # **********/
