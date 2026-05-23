@@ -1036,7 +1036,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
 
     # /**********
 
-
+mirror_site_wget 'https://cli.github.com/manual/' 'gh-cli'
     # **********/
 
 
