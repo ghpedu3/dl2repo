@@ -5,7 +5,7 @@
 __ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
-__ENABLE_DOWNLOAD_QJSNG="false"
+__ENABLE_DOWNLOAD_QJSNG="true"
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
@@ -395,7 +395,7 @@ _ELECTRON_BASE_NAME="electron-${_ELECTRON_VERSION}"
 
 
 _QJSNG_DIST_BASE_URL="https://github.com/quickjs-ng/quickjs/releases/download"
-_QJSNG_VERSION="0.13.0"
+_QJSNG_VERSION="0.15.0"
 _QJSNG_BASE_URL="${_QJSNG_DIST_BASE_URL}/v${_QJSNG_VERSION}"
 _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
 
@@ -907,7 +907,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 
     # my_wget "https://jpsoft.com/all-downloads/all-downloads.html"
     # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
-    # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/Cranelift" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
+    my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/JSONP" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
 
     # my_wget "https://download.sysinternals.com/files/SysinternalsSuite.zip"
     # my_wget "https://download.sysinternals.com/files/PSTools.zip"
