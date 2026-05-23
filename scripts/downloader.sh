@@ -1008,6 +1008,21 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # my_wget 'https://github.com/AutoHotkey/Ahk2Exe/releases/download/Ahk2Exe1.1.37.02a2/Ahk2Exe1.1.37.02a2.zip'
 
 
+    true && {
+        # my_wget https://www.rarlab.com/download.htm
+        # my_wget https://www.rarlab.com/rar_add.htm
+        # my_wget https://www.rarlab.com/rarnew.htm
+
+        my_wget https://www.rarlab.com/rar/unrarsrc-7.2.6.tar.gz
+        my_wget https://www.rarlab.com/rar/unrardll-722.exe
+        my_wget https://www.rarlab.com/rar/unrarw64.exe
+        my_wget https://www.rarlab.com/rar/winrar-x64-722.exe
+        my_wget https://www.rarlab.com/rar/rar-android-720.131.apk
+        my_wget https://www.rarlab.com/rar/rarlinux-x64-722.tar.gz
+        my_wget https://www.rarlab.com/rar/rarbsd-x64-722.tar.gz
+    }
+
+
     false && {
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SDKRef.pdf'
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/SHA256SUMS'
@@ -1021,9 +1036,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
 
     # /**********
 
-my_wget https://www.rarlab.com/download.htm
-my_wget https://www.rarlab.com/rar_add.htm
-my_wget https://www.rarlab.com/rarnew.htm
+
     # **********/
 
 
