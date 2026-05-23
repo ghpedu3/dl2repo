@@ -157,18 +157,21 @@ get_node_api_docs() {
 get_en_wikipedia_pdf() {
     
     local CONST_USER_AGENT="Mozilla/5.0"
-	local ARTICLES=()
+	   local ARTICLES=()
 	
-	[ "${@:+#}#" = "#" ] && {
-		echo At least 1 article must be specified
-		return 1;
-	}
-	ARTICLES=("$@")
+	   [ "${@:+#}#" = "#" ] && {
+		      echo At least 1 article must be specified
+		      return 1;
+    }
+    ARTICLES=("$@")
+
+    mkdir wikipedia-pdf && pushd wikipedia-pdf || return 1
     
     for article in "${ARTICLES[@]}"; do
         my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/${article}" ""  --no-verbose --user-agent="${CONST_USER_AGENT}" --content-disposition
         sleep 1s
     done
+    popd
 }
 
 
