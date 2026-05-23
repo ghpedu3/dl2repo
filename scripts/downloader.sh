@@ -994,7 +994,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 
     # /**********
 
-
+my_wget 'https://www.sumatrapdfreader.org/downloadafter'
 
     # **********/
 
