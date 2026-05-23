@@ -20,6 +20,7 @@ __ENABLE_DOWNLOAD_VSCODE="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
+__ENABLE_DOWNLOAD_SUMATRA_PDF="true"
 __ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN="false"
 __ENABLE_DOWNLOAD_TMP="true"
 
@@ -855,6 +856,32 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo '7ZIP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+_SUMATRA_PDF_DIST_BASE_URL="https://www.sumatrapdfreader.org/dl/rel"
+_SUMATRA_PDF_VERSION="3.6.1"
+_SUMATRA_PDF_BASE_URL="${_SUMATRA_PDF_DIST_BASE_URL}/${_SUMATRA_PDF_VERSION}"
+_SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
+[ "${__ENABLE_DOWNLOAD_SUMATRA_PDF}" = "true" ] && {
+    mkdir -p "sumatrapdf/${_SUMATRA_PDF_BASE_NAME}"
+    cd "sumatrapdf/${_SUMATRA_PDF_BASE_NAME}" || exit $?
+
+    local REFERER='https://www.sumatrapdfreader.org/downloadafter'
+    for slug in \
+        '-64-install.exe' \
+        '-arm64-install.exe' \
+        '-install.exe' \
+        '-64.zip' \
+        '-arm64.zip' \
+        '.zip'
+    do
+        my_wget "${_SUMATRA_PDF_BASE_URL}/SumatraPDF-${_SUMATRA_PDF_VERSION}${slug}" "" --no-verbose --referer="${REFERER}" --user-agent="Mozilla/5.0"
+    done
+
+    my_wget "https://github.com/sumatrapdfreader/sumatrapdf/archive/refs/tags/${_SUMATRA_PDF_VERSION}rel.tar.gz" "" --no-verbose --content-disposition
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'SUMATRA_PDF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
 [ "${__ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN}" = "true" ] && {
     mkdir -p "rubyinstaller"
     cd "rubyinstaller" || exit $?
@@ -994,7 +1021,6 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
 
     # /**********
 
-my_wget 'https://www.sumatrapdfreader.org/downloadafter'
 
     # **********/
 
