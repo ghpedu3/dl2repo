@@ -154,6 +154,24 @@ get_node_api_docs() {
 	wget --no-verbose --spider "${URL}" && mirror_site_wget "${URL}" "node_api_${NODE_VERSION}"
 }
 
+get_en_wikipedia_pdf() {
+    
+    local CONST_USER_AGENT="Mozilla/5.0"
+	local ARTICLES=()
+	
+	[ "${1:+#}#" = "#" ] && {
+		echo At least 1 article must be specified
+		return 1;
+	}
+	ARTICLES=("$@")
+    
+    for article in "${ARTICLES[@]}"; do
+        my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/${article}" ""  --no-verbose --user-agent="{CONST_USER_AGENT}" --content-disposition
+        sleep 1s
+    done
+}
+
+
 _ARTIFACTS="$GITHUB_WORKSPACE/artifacts"
 mkdir "${_ARTIFACTS}"
 cd "${_ARTIFACTS}" || exit $?
