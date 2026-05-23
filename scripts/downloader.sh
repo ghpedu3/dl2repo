@@ -166,7 +166,7 @@ get_en_wikipedia_pdf() {
 	ARTICLES=("$@")
     
     for article in "${ARTICLES[@]}"; do
-        my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/${article}" ""  --no-verbose --user-agent="{CONST_USER_AGENT}" --content-disposition
+        my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/${article}" ""  --no-verbose --user-agent="${CONST_USER_AGENT}" --content-disposition
         sleep 1s
     done
 }
