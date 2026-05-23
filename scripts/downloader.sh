@@ -157,11 +157,10 @@ get_node_api_docs() {
 get_en_wikipedia_pdf() {
     
     local CONST_USER_AGENT="Mozilla/5.0"
-	   local ARTICLES=()
-	
-	   [ "${@:+#}#" = "#" ] && {
-		      echo At least 1 article must be specified
-		      return 1;
+    local ARTICLES=()
+    [ "${@:+#}#" = "#" ] && {
+        echo At least 1 article must be specified
+        return 1;
     }
     ARTICLES=("$@")
 
