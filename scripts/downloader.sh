@@ -956,7 +956,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/TCP_hole_punching" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
     # my_wget "https://en.wikipedia.org/api/rest_v1/page/pdf/JSONP" ""  --no-verbose --user-agent="Mozilla/5.0" --content-disposition
 
-    # get_en_wikipedia_pdf JSON_Web_Token
+    get_en_wikipedia_pdf JSON_Web_Token
 
     # my_wget "https://download.sysinternals.com/files/SysinternalsSuite.zip"
     # my_wget "https://download.sysinternals.com/files/PSTools.zip"
