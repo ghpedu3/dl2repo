@@ -954,7 +954,7 @@ _7ZIP_BASE_NAME="7zip-${_7ZIP_VERSION}"
     # get_node_api_docs "24.16.0"
     # get_node_api_docs "22.22.3"
 
-    my_wget ''https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.26/AutoHotkey_2.0.26_setup.exe'
+    my_wget 'https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.26/AutoHotkey_2.0.26_setup.exe'
     my_wget 'https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.26/AutoHotkey_2.0.26.zip'
 
     # /**********
