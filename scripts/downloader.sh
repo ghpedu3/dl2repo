@@ -20,7 +20,7 @@ __ENABLE_DOWNLOAD_VSCODE="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
-__ENABLE_DOWNLOAD_SUMATRA_PDF="true"
+__ENABLE_DOWNLOAD_SUMATRA_PDF="false"
 __ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN="false"
 __ENABLE_DOWNLOAD_TMP="true"
 
@@ -876,7 +876,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
         my_wget "${_SUMATRA_PDF_BASE_URL}/SumatraPDF-${_SUMATRA_PDF_VERSION}${slug}" "" --no-verbose --referer="${REFERER}" --user-agent="Mozilla/5.0"
     done
 
-    my_wget "https://github.com/sumatrapdfreader/sumatrapdf/archive/refs/tags/${_SUMATRA_PDF_VERSION}rel.tar.gz" "" --no-verbose --content-disposition
+    # my_wget "https://github.com/sumatrapdfreader/sumatrapdf/archive/refs/tags/${_SUMATRA_PDF_VERSION}rel.tar.gz" "" --no-verbose --content-disposition
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'SUMATRA_PDF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
