@@ -1008,7 +1008,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # my_wget 'https://github.com/AutoHotkey/Ahk2Exe/releases/download/Ahk2Exe1.1.37.02a2/Ahk2Exe1.1.37.02a2.zip'
 
 
-    true && {
+    false && {
         # my_wget https://www.rarlab.com/download.htm
         # my_wget https://www.rarlab.com/rar_add.htm
         # my_wget https://www.rarlab.com/rarnew.htm
