@@ -4,6 +4,7 @@
 #   https://raw.githubusercontent.com/ghpedu3/test/refs/heads/main/artifacts/
 __ENABLE_DOWNLOAD_NODE="false"
 __ENABLE_DOWNLOAD_DENO="false"
+__ENABLE_DOWNLOAD_CRYSTAL_LANG="true"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_BUN="false"
@@ -263,6 +264,35 @@ _DENO_BASE_NAME="deno-${_DENO_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'DENO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_CRYSTAL_LANG_DIST_BASE_URL="https://github.com/crystal-lang/crystal/releases/download"
+_CRYSTAL_LANG_VERSION="1.20.2"
+_CRYSTAL_LANG_BASE_URL="${_CRYSTAL_LANG_DIST_BASE_URL}/${_CRYSTAL_LANG_VERSION}"
+_CRYSTAL_LANG_BASE_NAME="crystal-${_CRYSTAL_LANG_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_CRYSTAL_LANG}" = "true" ] && {
+    mkdir -p "crystal-lang/${_CRYSTAL_LANG_BASE_NAME}"
+    cd "crystal-lang/${_CRYSTAL_LANG_BASE_NAME}" || exit $?
+    
+    for slug in \
+        '1-linux-aarch64-bundled.tar.gz' \
+        '1-linux-aarch64.tar.gz' \
+        '1-linux-x86_64-bundled.tar.gz' \
+        '1-linux-x86_64.tar.gz' \
+        'docs.tar.gz' \
+        'windows-aarch64-gnu-unsupported.zip' \
+        'windows-x86_64-gnu-unsupported.zip' \
+        'windows-x86_64-msvc-unsupported.exe'
+    do
+        my_wget "${_CRYSTAL_LANG_BASE_URL}/crystal-${_CRYSTAL_LANG_VERSION}-${slug}"
+    done
+    
+    # my_wget "https://github.com/crystal-lang/crystal/archive/refs/tags/${_CRYSTAL_LANG_VERSION}.tar.gz" "" --no-verbose --content-disposition
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'CRYSTAL_LANG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 
 
 _GOLANG_BASE_URL="https://dl.google.com/go"
