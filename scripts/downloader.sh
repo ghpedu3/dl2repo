@@ -290,6 +290,8 @@ _CRYSTAL_LANG_BASE_NAME="crystal-${_CRYSTAL_LANG_VERSION}"
     
     # my_wget "https://github.com/crystal-lang/crystal/archive/refs/tags/${_CRYSTAL_LANG_VERSION}.tar.gz" "" --no-verbose --content-disposition
 
+    mirror_site_wget 'https://crystal-lang.org/reference/' 'crytal-lang_reference'
+
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'CRYSTAL_LANG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
@@ -1066,7 +1068,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
 
     # /**********
 
-mirror_site_wget 'https://crystal-lang.org/reference/' 'crytal-lang_reference'
+
     # **********/
 
 
