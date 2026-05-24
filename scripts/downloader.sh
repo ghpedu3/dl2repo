@@ -788,6 +788,7 @@ _VSCODE_BASE_NAME="vscode-${_VSCODE_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'VSCODE download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+
 _VSCODIUM_DIST_BASE_URL="https://github.com/VSCodium/vscodium/releases/download"
 _VSCODIUM_VERSION="1.121.03429"
 _VSCODIUM_BASE_URL="${_VSCODIUM_DIST_BASE_URL}/${_VSCODIUM_VERSION}"
@@ -800,128 +801,128 @@ _VSCODIUM_BASE_NAME="vscodium-${_VSCODIUM_VERSION}"
     # win-x64
     true && {
         ## User Installer
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumUserSetup-x64-1.121.03429.exe"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumUserSetup-x64-${_VSCODIUM_VERSION}.exe"
 
         ## System Installer
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumSetup-x64-1.121.03429.exe"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumSetup-x64-${_VSCODIUM_VERSION}.exe"
 
         ## .zip
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-win32-x64-1.121.03429.zip"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-win32-x64-${_VSCODIUM_VERSION}.zip"
 
         ## .msi - updates enabled
-        # my_wget "${_VSCODIUM_BASE_URL}/VSCodium-x64-1.121.03429.msi"
+        # my_wget "${_VSCODIUM_BASE_URL}/VSCodium-x64-${_VSCODIUM_VERSION}.msi"
 
         ## .msi - updates disabled
-        # my_wget "${_VSCODIUM_BASE_URL}/VSCodium-x64-updates-disabled-1.121.03429.msi"
+        # my_wget "${_VSCODIUM_BASE_URL}/VSCodium-x64-updates-disabled-${_VSCODIUM_VERSION}.msi"
 
         ## Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-win32-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-win32-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Web Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-win32-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-win32-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## CLI
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-win32-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-win32-x64-${_VSCODIUM_VERSION}.tar.gz"
     }
 
     # linux-x64
     true && {
         ## .deb
-        # my_wget "${_VSCODIUM_BASE_URL}/codium_1.121.03429_amd64.deb"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium_${_VSCODIUM_VERSION}_amd64.deb"
 
         ## .rpm
-        # my_wget "${_VSCODIUM_BASE_URL}/codium-1.121.03429-el8.x86_64.rpm"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium-${_VSCODIUM_VERSION}-el8.x86_64.rpm"
 
         ## .tar.gz
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## AppImage
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-1.121.03429.glibc2.30-x86_64.AppImage"
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-1.121.03429.glibc2.30-x86_64.AppImage.zsync"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-${_VSCODIUM_VERSION}.glibc2.30-x86_64.AppImage"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-${_VSCODIUM_VERSION}.glibc2.30-x86_64.AppImage.zsync"
 
         ## Snap
-        # my_wget "${_VSCODIUM_BASE_URL}/codium_1.121.03429_amd64.snap"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium_${_VSCODIUM_VERSION}_amd64.snap"
 
         ## Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Web Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## CLI
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Alphine Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-alpine-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-alpine-x64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Alphine Web Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-alpine-x64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-alpine-x64-${_VSCODIUM_VERSION}.tar.gz"
     }
 
     # win-arm64
     false && {
         ## User Installer
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumUserSetup-arm64-1.121.03429.exe"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumUserSetup-arm64-${_VSCODIUM_VERSION}.exe"
 
         ## System Installer
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumSetup-arm64-1.121.03429.exe"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodiumSetup-arm64-${_VSCODIUM_VERSION}.exe"
 
         ## .zip
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-win32-arm64-1.121.03429.zip"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-win32-arm64-${_VSCODIUM_VERSION}.zip"
 
         ## CLI
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-win32-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-win32-arm64-${_VSCODIUM_VERSION}.tar.gz"
     }
 
     # linux-arm64
     true && {
         ## .deb
-        # my_wget "${_VSCODIUM_BASE_URL}/codium_1.121.03429_arm64.deb"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium_${_VSCODIUM_VERSION}_arm64.deb"
 
         ## .rpm
-        # my_wget "${_VSCODIUM_BASE_URL}/codium-1.121.03429-el8.aarch64.rpm"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium-${_VSCODIUM_VERSION}-el8.aarch64.rpm"
 
         ## .tar.gz
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-arm64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Snap
-        # my_wget "${_VSCODIUM_BASE_URL}/codium_1.121.03429_arm64.snap"
+        # my_wget "${_VSCODIUM_BASE_URL}/codium_${_VSCODIUM_VERSION}_arm64.snap"
 
         ## Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-arm64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Web Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-arm64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## CLI
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-arm64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Alphine Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-alpine-arm64-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-alpine-arm64-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Alphine Web Host
-        vscodium-reh-web-alpine-arm64-1.121.03429.tar.gz
+        my_wget "vscodium-reh-web-alpine-arm64-${_VSCODIUM_VERSION}.tar.gz"
     }
 
     # linux-arm32
     false && {
         ## .deb
-        my_wget "${_VSCODIUM_BASE_URL}/codium_1.121.03429_armhf.deb"
+        my_wget "${_VSCODIUM_BASE_URL}/codium_${_VSCODIUM_VERSION}_armhf.deb"
 
         ## .rpm
-        my_wget "${_VSCODIUM_BASE_URL}/codium-1.121.03429-el8.armv7hl.rpm"
+        my_wget "${_VSCODIUM_BASE_URL}/codium-${_VSCODIUM_VERSION}-el8.armv7hl.rpm"
 
         ## .tar.gz
-        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-armhf-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/VSCodium-linux-armhf-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Remote Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-armhf-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-linux-armhf-${_VSCODIUM_VERSION}.tar.gz"
 
         ## Web Host
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-armhf-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-reh-web-linux-armhf-${_VSCODIUM_VERSION}.tar.gz"
 
         ## CLI
-        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-armhf-1.121.03429.tar.gz"
+        my_wget "${_VSCODIUM_BASE_URL}/vscodium-cli-linux-armhf-${_VSCODIUM_VERSION}.tar.gz"
     }
 
     cd "${_ARTIFACTS}"
