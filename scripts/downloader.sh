@@ -796,8 +796,8 @@ _VSCODIUM_BASE_NAME="vscodium-${_VSCODIUM_VERSION}"
 [ "${__ENABLE_DOWNLOAD_VSCODIUM}" = "true" ] && {
     mkdir -p "vscodium/${_VSCODIUM_BASE_NAME}"
     cd "vscodium/${_VSCODIUM_BASE_NAME}" || exit $?
-    
-	# win-x64
+
+    # win-x64
     true && {
         ## User Installer
         my_wget "${_VSCODIUM_BASE_URL}/VSCodiumUserSetup-x64-1.121.03429.exe"
