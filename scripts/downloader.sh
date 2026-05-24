@@ -7,7 +7,7 @@ __ENABLE_DOWNLOAD_DENO="false"
 __ENABLE_DOWNLOAD_CRYSTAL_LANG="false"
 __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
-__ENABLE_DOWNLOAD_MOZ_JSSHELL="true"
+__ENABLE_DOWNLOAD_MOZ_JSSHELL="false"
 __ENABLE_DOWNLOAD_BUN="false"
 __ENABLE_DOWNLOAD_BUN_CANARY="false"
 __ENABLE_DOWNLOAD_BBW32="false"
@@ -1240,6 +1240,6 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
 
     # **********/
 
-
+    . "${GITHUB_WORKSPACE}/scripts/scratch.sh"
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
