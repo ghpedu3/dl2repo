@@ -482,6 +482,31 @@ _QJSNG_BASE_NAME="quickjs-ng-${_QJSNG_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'QJSNG download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+_MOZ_JSSHELL_DIST_BASE_URL="https://ftp.mozilla.org/pub/firefox/releases"
+_MOZ_JSSHELL_VERSION="151.0.1"
+_MOZ_JSSHELL_BASE_URL="${_MOZ_JSSHELL_DIST_BASE_URL}/${_MOZ_JSSHELL_VERSION}/jsshell"
+_MOZ_JSSHELL_BASE_NAME="jsshell-${_MOZ_JSSHELL_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_MOZ_JSSHELL}" = "true" ] && {
+    mkdir -p "jsshell/${_MOZ_JSSHELL_BASE_NAME}"
+    cd "jsshell/${_MOZ_JSSHELL_BASE_NAME}" || exit $?
+    
+    for slug in \
+        'jsshell-linux-aarch64.zip' \
+        'jsshell-linux-x86_64.zip' \
+        'jsshell-mac.zip' \
+        'jsshell-win32.zip' \
+        'jsshell-win64-aarch64.zip' \
+        'jsshell-win64.zip'
+    do
+        my_wget "${_MOZ_JSSHELL_BASE_URL}/${slug}"
+    done
+
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MOZ_JSSHELL download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+
 _BUN_DIST_BASE_URL="https://github.com/oven-sh/bun/releases/download"
 _BUN_VERSION="1.3.14"
 _BUN_BASE_URL="${_BUN_DIST_BASE_URL}/bun-v${_BUN_VERSION}"
