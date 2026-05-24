@@ -1240,7 +1240,7 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # **********/
 
 
-    . "${GITHUB_WORKSPACE}/scripts/scratch.sh"
+    # . "${GITHUB_WORKSPACE}/scripts/scratch.sh"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'TMP download was disabled' >>"${_ARTIFACTS}/stderr.txt"
