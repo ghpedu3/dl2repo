@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: workflow_dispatch
 env:
   BRANCH_TIMESTAMP: 00000000-000000-000000000
+  WORKSPACE_DIR: {{ github.workspace }}
 
 jobs:
   Download-to-repo:
