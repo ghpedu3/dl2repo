@@ -1015,6 +1015,8 @@ _FORGEJO_BASE_NAME="forgejo-${_FORGEJO_VERSION}"
     do
         my_wget "${_FORGEJO_BASE_URL}/${slug}"
     done
+
+    # my_wget "https://codeberg.org/forgejo/forgejo/archive/v${_FORGEJO_VERSION}.tar.gz" "" --no-verbose --content-disposition
    
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'FORGEJO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
