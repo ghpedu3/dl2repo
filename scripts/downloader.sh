@@ -22,6 +22,7 @@ __ENABLE_DOWNLOAD_VSCODE="false"
 __ENABLE_DOWNLOAD_VSCODIUM="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_FORGEJO="false"
+__ENABLE_DOWNLOAD_GITEA="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
 __ENABLE_DOWNLOAD_SUMATRA_PDF="false"
@@ -1022,6 +1023,37 @@ _FORGEJO_BASE_NAME="forgejo-${_FORGEJO_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'FORGEJO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
+_GITEA_DIST_BASE_URL="https://github.com/go-gitea/gitea/releases/download"
+_GITEA_VERSION="1.26.1"
+_GITEA_BASE_URL="${_GITEA_DIST_BASE_URL}/v${_GITEA_VERSION}"
+_GITEA_BASE_NAME="gitea-${_GITEA_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_GITEA}" = "true" ] && {
+    mkdir -p "gitea/${_GITEA_BASE_NAME}"
+    cd "gitea/${_GITEA_BASE_NAME}" || exit $?
+    
+    for slug in \
+        "gitea-${_GITEA_VERSION}-linux-amd64.xz" \
+        "gitea-${_GITEA_VERSION}-linux-386.xz" \
+        "gitea-${_GITEA_VERSION}-linux-arm64.xz" \
+        
+        "gitea-${_GITEA_VERSION}-windows-4.0-amd64.exe.xz" \
+        "gitea-${_GITEA_VERSION}-gogit-windows-4.0-amd64.exe.xz" \
+        
+        "gitea-${_GITEA_VERSION}-windows-4.0-386.exe.xz" \
+        "gitea-${_GITEA_VERSION}-gogit-windows-4.0-386.exe.xz" \
+        
+        "gitea-${_GITEA_VERSION}-freebsd14-amd64.xz" \
+        
+        "gitea-src-${_GITEA_VERSION}.tar.gz"
+    do
+        my_wget "${_GITEA_BASE_URL}/${slug}"
+    done
+   
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITEA download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
 _GITHUB_CLI_DIST_BASE_URL="https://github.com/cli/cli/releases/download"
 _GITHUB_CLI_VERSION="2.92.0"
 _GITHUB_CLI_BASE_URL="${_GITHUB_CLI_DIST_BASE_URL}/v${_GITHUB_CLI_VERSION}"
@@ -1192,15 +1224,6 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # my_wget "https://www.nuget.org/api/v2/package/Git-Windows-Minimal/2.54.0" "git-windows-minimal.2.54.0.nupkg"
     # my_wget "https://www.nuget.org/api/v2/package/GitForWindows/2.54.0" "gitforwindows.2.54.0.nupkg"
 
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-amd64.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-arm64.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-amd64.exe.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-amd64.exe.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-linux-386.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-gogit-windows-4.0-386.exe.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-windows-4.0-386.exe.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-1.26.1-freebsd14-amd64.xz"
-    # my_wget "https://github.com/go-gitea/gitea/releases/download/v1.26.1/gitea-src-1.26.1.tar.gz"
 
     # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/dokan.zip"
     # my_wget "https://github.com/dokan-dev/dokany/releases/download/v2.3.1.1000/DokanSetup.exe"
