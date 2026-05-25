@@ -23,6 +23,7 @@ __ENABLE_DOWNLOAD_VSCODIUM="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
 __ENABLE_DOWNLOAD_FORGEJO="false"
 __ENABLE_DOWNLOAD_GITEA="false"
+__ENABLE_DOWNLOAD_GITEA_NIGHTLY="false"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
 __ENABLE_DOWNLOAD_SUMATRA_PDF="false"
@@ -1090,6 +1091,36 @@ _GITEA_BASE_NAME="gitea-${_GITEA_VERSION}"
    
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITEA download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_GITEA_NIGHTLY_BASE_URL="https://dl.gitea.com/gitea/main-nightly"
+_GITEA_NIGHTLY_BASE_NAME="gitea-main-nightly"
+[ "${__ENABLE_DOWNLOAD_GITEA_NIGHTLY}" = "true" ] && {
+    mkdir -p "gitea/${_GITEA_NIGHTLY_BASE_NAME}"
+    cd "gitea/${_GITEA_NIGHTLY_BASE_NAME}" || exit $?
+    
+    my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-src-main-nightly.tar.gz"
+
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-windows-4.0-arm64.exe.xz"
+    my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-windows-4.0-amd64.exe.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-windows-4.0-386.exe.xz"
+
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-gogit-windows-4.0-arm64.exe.xz"
+    my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-gogit-windows-4.0-amd64.exe.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-gogit-windows-4.0-386.exe.xz"
+
+    my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-linux-arm64.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-linux-arm-6.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-linux-arm-5.xz"
+    my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-linux-amd64.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-linux-386.xz"
+
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-freebsd14-amd64.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-freebsd13-amd64.xz"
+    # my_wget "${_GITEA_NIGHTLY_BASE_URL}/gitea-main-nightly-freebsd12-amd64.xz"
+   
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'GITEA_NIGHTLY download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
 _GITHUB_CLI_DIST_BASE_URL="https://github.com/cli/cli/releases/download"
