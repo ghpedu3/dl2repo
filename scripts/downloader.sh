@@ -1008,10 +1008,10 @@ _FORGEJO_BASE_NAME="forgejo-${_FORGEJO_VERSION}"
     cd "forgejo/${_FORGEJO_BASE_NAME}" || exit $?
     
     for slug in \
-        'forgejo-${_FORGEJO_VERSION}-linux-amd64.xz' \
-        'forgejo-${_FORGEJO_VERSION}-linux-arm-6.xz' \
-        'forgejo-${_FORGEJO_VERSION}-linux-arm64.xz' \
-        'forgejo-src-${_FORGEJO_VERSION}.tar.gz'
+        "forgejo-${_FORGEJO_VERSION}-linux-amd64.xz" \
+        "forgejo-${_FORGEJO_VERSION}-linux-arm-6.xz" \
+        "forgejo-${_FORGEJO_VERSION}-linux-arm64.xz" \
+        "forgejo-src-${_FORGEJO_VERSION}.tar.gz"
     do
         my_wget "${_FORGEJO_BASE_URL}/${slug}"
     done
