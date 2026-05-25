@@ -30,6 +30,48 @@ __ENABLE_DOWNLOAD_RUBY_INSTALLER_WIN="false"
 __ENABLE_DOWNLOAD_TMP="true"
 
 
+
+archive_folder() {
+    local FOLDER=''
+	local ARC_NAME=''
+
+	[ "${1:+#}#" = "#" ] && {
+		echo Folder path not specified
+		return 1;
+	}
+	FOLDER="${1}"
+	[ -d "${FOLDER}" ] || {
+	    echo "The specified path '${FOLDER}' does not exist or is not a directory
+	    return 1
+	}
+	shift
+
+	[ "${1:+#}#" = "#" ] && {
+		ARC_NAME="${FOLDER##*/}.tar.xz"
+	} || {
+	    ARC_NAME"${1##*/}"
+	    [ "${MNAME:+#}#" = "#" ] && {
+		  echo The specified archive name is not valid
+		  return 1;
+	    }
+	    ARC_NAME="${ARC_NAME}.tar.xz"
+	}
+
+	echo "tar -cJf '${ARC_NAME}' '${FOLDER}'"
+	tar -cJf "${ARC_NAME}" "${FOLDER}" && {
+	    rm -rf "${FOLDER}"
+	    local SIZE=0
+	    SIZE=$(stat -c%s "${ARC_NAME}")
+	    [ ${SIZE} -gt $((49 * 1024 * 1024)) ] && {
+	        echo "split --bytes=49MiB --numeric-suffixes=1 '${ARC_NAME}' '${ARC_NAME}.part'"
+	        split --bytes=49MiB --numeric-suffixes=1 "${ARC_NAME}" "${ARC_NAME}.part"
+	        rm "${ARC_NAME}"
+	    }
+	    true
+	} || rm -rf "${FOLDER}"
+}
+
+
 my_wget() {
 
 	local URL=''
