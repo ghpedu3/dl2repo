@@ -21,6 +21,7 @@ __ENABLE_DOWNLOAD_MSEDIT="false"
 __ENABLE_DOWNLOAD_VSCODE="false"
 __ENABLE_DOWNLOAD_VSCODIUM="false"
 __ENABLE_DOWNLOAD_MSDEF="false"
+__ENABLE_DOWNLOAD_FORGEJO="true"
 __ENABLE_DOWNLOAD_GITHUB_CLI="false"
 __ENABLE_DOWNLOAD_7ZIP="false"
 __ENABLE_DOWNLOAD_SUMATRA_PDF="false"
@@ -995,6 +996,29 @@ _MSEDIT_BASE_NAME="edit-${_MSEDIT_VERSION}"
 
     cd "${_ARTIFACTS}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'MSDEF download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
+
+_FORGEJO_DIST_BASE_URL="https://codeberg.org/forgejo/forgejo/releases/download"
+_FORGEJO_VERSION="15.0.2"
+_FORGEJO_BASE_URL="${_FORGEJO_DIST_BASE_URL}/v${_FORGEJO_VERSION}"
+_FORGEJO_BASE_NAME="forgejo-${_FORGEJO_VERSION}"
+
+[ "${__ENABLE_DOWNLOAD_FORGEJO}" = "true" ] && {
+    mkdir -p "forgejo/${_FORGEJO_BASE_NAME}"
+    cd "forgejo/${_FORGEJO_BASE_NAME}" || exit $?
+    
+    for slug in \
+        'forgejo-${_FORGEJO_VERSION}-linux-amd64.xz' \
+        'forgejo-${_FORGEJO_VERSION}-linux-arm-6.xz' \
+        'forgejo-${_FORGEJO_VERSION}-linux-arm64.xz' \
+        'forgejo-src-${_FORGEJO_VERSION}.tar.gz'
+    do
+        my_wget "${_FORGEJO_BASE_URL}/${slug}"
+    done
+   
+    cd "${_ARTIFACTS}"
+} 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'FORGEJO download was disabled' >>"${_ARTIFACTS}/stderr.txt"
+
 
 _GITHUB_CLI_DIST_BASE_URL="https://github.com/cli/cli/releases/download"
 _GITHUB_CLI_VERSION="2.92.0"
