@@ -41,7 +41,7 @@ archive_folder() {
 	}
 	FOLDER="${1}"
 	[ -d "${FOLDER}" ] || {
-	    echo "The specified path '${FOLDER}' does not exist or is not a directory
+	    echo "The specified path '${FOLDER}' does not exist or is not a directory"
 	    return 1
 	}
 	shift
