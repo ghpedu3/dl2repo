@@ -9,7 +9,7 @@ __ENABLE_DOWNLOAD_ELECTRON="false"
 __ENABLE_DOWNLOAD_QJSNG="false"
 __ENABLE_DOWNLOAD_MOZ_JSSHELL="false"
 __ENABLE_DOWNLOAD_BUN="false"
-__ENABLE_DOWNLOAD_BUN_CANARY="false"
+__ENABLE_DOWNLOAD_BUN_CANARY="true"
 __ENABLE_DOWNLOAD_BBW32="false"
 __ENABLE_DOWNLOAD_W64DEVKIT="false"
 __ENABLE_DOWNLOAD_GOLANG="false"
@@ -580,7 +580,7 @@ _BUN_BASE_NAME="bun-v${_BUN_VERSION}"
 } 2>&1 | tee "${_ARTIFACTS}/stderr.txt" || echo 'BUN download was disabled' >>"${_ARTIFACTS}/stderr.txt"
 
 
-_BUN_CANARY_COMMIT="49c97de6b38192db015d26619e5acd26332c80b6"
+_BUN_CANARY_COMMIT="a49b308f29f6761f8bd64e08efac8cc2e25a4629"
 _BUN_CANARY_BASE_URL="https://github.com/oven-sh/bun/releases/download/canary"
 _BUN_CANARY_BASE_NAME="bun-canary-${_BUN_CANARY_COMMIT}"
 [ "${__ENABLE_DOWNLOAD_BUN_CANARY}" = "true" ] && {
