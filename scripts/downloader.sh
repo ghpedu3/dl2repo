@@ -1353,6 +1353,11 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
         my_wget 'https://download.virtualbox.org/virtualbox/7.2.8/Oracle_VirtualBox_Extension_Pack-7.2.8-173730.vbox-extpack'
     }
 
+    my_wget "https://github.com/zealdocs/zeal/releases/download/v0.8.1/zeal-0.8.1-portable-windows-x64.7z"
+    my_wget "https://github.com/zealdocs/zeal/releases/download/v0.8.1/zeal-0.8.1-windows-x64.msi"
+    my_wget "https://github.com/zealdocs/zeal/releases/download/v0.8.1/Zeal-0.8.1-x86_64.AppImage"
+    my_wget "https://github.com/zealdocs/zeal/releases/download/v0.8.1/zeal-0.8.1.tar.xz"
+
     # /**********
 
 
