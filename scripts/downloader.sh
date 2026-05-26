@@ -1359,11 +1359,11 @@ _SUMATRA_PDF_BASE_NAME="sumatrapdf-${_SUMATRA_PDF_VERSION}"
     # my_wget "https://github.com/zealdocs/zeal/releases/download/v0.8.1/zeal-0.8.1.tar.xz"
 
 
-    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/CSS.tgz"
-    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/HTML.tgz"
-    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/JavaScript.tgz"
-    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/HTTP.tgz"
-    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/SVG.tgz"
+    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/CSS.tgz" "" --no-verbose --referer="https://kapeli.com/mdn_offline/" --user-agent="Mozilla/5.0"
+    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/HTML.tgz" "" --no-verbose --referer="https://kapeli.com/mdn_offline/" --user-agent="Mozilla/5.0"
+    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/JavaScript.tgz" "" --no-verbose --referer="https://kapeli.com/mdn_offline/" --user-agent="Mozilla/5.0"
+    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/HTTP.tgz" "" --no-verbose --referer="https://kapeli.com/mdn_offline/" --user-agent="Mozilla/5.0"
+    my_wget "https://kapeli.com/mdn_offline/feeds/zzz/mdn/SVG.tgz" "" --no-verbose --referer="https://kapeli.com/mdn_offline/" --user-agent="Mozilla/5.0"
 
 
     # /**********
