@@ -36,7 +36,8 @@ jobs:
 
             page=$((page + 1))
           done
-
+          # debugging
+          cat "$tmpfile"
           grep '^artifacts-' "$tmpfile" || true |
           while IFS= read -r branch; do
             [ -n "$branch" ] || continue
