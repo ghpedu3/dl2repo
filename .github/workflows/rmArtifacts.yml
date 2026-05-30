@@ -36,18 +36,27 @@ jobs:
 
             page=$((page + 1))
           done
-          # debugging
-          cat "$tmpfile"
-          grep '^artifacts-' "$tmpfile" || true |
+
+          grep '^artifacts-' "$tmpfile" |
           while IFS= read -r branch; do
             [ -n "$branch" ] || continue
 
             echo "Deleting ${branch}..."
 
-            curl -fsSL -X DELETE \
+            response=$(curl -sL -w "\n%{http_code}" -X DELETE \
               -H "Authorization: Bearer ${GITHUB_TOKEN}" \
               -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/git/refs/heads/${branch}"
+              "https://api.github.com/repos/${{ github.repository }}/git/refs/heads/${branch}")
+            
+            http_code=$(echo "$response" | tail -n1)
+            body=$(echo "$response" | sed '$d')
+
+            if [ "$http_code" -ne 204 ]; then
+              echo "Error deleting ${branch}: HTTP $http_code"
+              echo "$body"
+            else
+              echo "Successfully deleted ${branch}"
+            fi
           done
 
           rm -f "$tmpfile"
